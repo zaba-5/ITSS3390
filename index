@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Verdana;
+      background-color: #EAE9EC;
+    }
+
+    .main {
+      float: right;
+      width: 70%;
+      padding: 0 10px;
+      margin: 0px 20px 7px 0px;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #0B066A;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .topnav a {
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .topnav a:hover {
+      background-color: #5753A2;
+      border-radius: 5px;
+    }
+
+    /* Search bar styling */
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto;
+    }
+
+    .search-bar input {
+      padding: 8px 12px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 25px 0 0 25px;
+      width: 250px;
+      outline: none;
+      background-color: white;
+    }
+
+    .search-bar button {
+      padding: 8px 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 0 25px 25px 0;
+      background-color: #0B066A;
+      color: white;
+      cursor: pointer;
+    }
+
+    .search-bar button:hover {
+      background-color: #1c44ac;
+    }
+
+    /* 🔲 Boxes container (3 per row) */
+    .box-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      min-height: 120px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Responsive stacking for small screens */
+    @media (max-width: 768px) {
+      .box-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .box-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topnav">
+    <a href="javascript:void(0);" onclick="toggleMenu()" style="font-size:24px;">&#9776;</a>
+    <a href="#">Holder 1</a>
+    <a href="#">Holder 2</a>
+    <a href="#">Holder 4</a>
+    <a href="#">Holder 5</a>
+    <a href="#">Holder 6</a>
+  </div>
+
+  <div style="background-color:#0B066A; color:#FFFFFF; padding:2px; text-align:center; margin-bottom:0;">
+    <h2>Days in Dallas</h2>
+  </div>
+
+  <!-- 🔍 Search bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Find a Story">
+    <button onclick="filterBoxes()">Search</button>
+  </div>
+
+  <!-- 🔲 Six Boxes (3 per row) -->
+  <div class="box-container" id="boxContainer">
+    <div class="box">Story 1</div>
+    <div class="box">Story 2</div>
+    <div class="box">Story 3</div>
+    <div class="box">Story 4</div>
+    <div class="box">Story 5</div>
+    <div class="box">Story 6</div>
+  </div>
+
+  <script>
+    function filterBoxes() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const boxes = document.querySelectorAll('.box');
+
+      boxes.forEach(box => {
+        const text = box.textContent.toLowerCase();
+        box.style.display = text.includes(input) ? 'block' : 'none';
+      });
+    }
+
+    // Optional: live search as you type
+    document.getElementById('searchInput').addEventListener('keyup', filterBoxes);
+  </script>
+
+</body>
+
+</html>
