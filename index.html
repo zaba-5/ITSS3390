@@ -112,6 +112,21 @@
         grid-template-columns: 1fr;
       }
     }
+    .footer {
+  overflow: hidden;
+  background-color: #0B066A;
+  display: flex;
+  justify-content: space-between; /* distributes items left and right */
+  align-items: center;
+  position: relative;
+  padding: 7px 10px;
+  color: #f2f2f2;
+}
+
+.footer a {
+  color: #f2f2f2;
+  text-decoration: none;
+}
   </style>
 </head>
 
@@ -137,6 +152,7 @@
 
   <div class="box-container" id="boxContainer">
     <div class="box">
+      <img src="https://calaero.edu/wp-content/uploads/2018/05/Airplane-Landings.jpg" width="100%" style="border-radius:10px;">
       <a href="https://zaba-5.github.io/ITSS3390/story_1">Arrival</a>
 </div>
     <div class="box">First week of classes</div>
@@ -160,6 +176,20 @@
     // Optional: live search as you type
     document.getElementById('searchInput').addEventListener('keyup', filterBoxes);
   </script>
+  <footer class=footer>
+    <p> URL:  
+      <a href="https://zaba-5.github.io/ITSS3390/" style="color: #f2f2f2">https://zaba-5.github.io/ITSS3390/</a>
+      </p>
+    <p>
+  <span style="font-size: 20px;">&#9786;</span>
+  Enjoy
+  <span style="font-size: 20px;">&#9786;</span>
+</p>
+    <p>Author: Alex Zabaleta Lacunza</p>
+    
+
+  </footer>
+  
 
 </body>
 
