@@ -15,8 +15,7 @@
       margin: 0;
     }
 
-    /* ------------------- NAVIGATION (Mobile First) ------------------- */
-
+    /* ------------------- NAVIGATION ------------------- */
     .topnav {
       background-color: #0B066A;
       padding: 10px;
@@ -27,7 +26,7 @@
     }
 
     .menu-links {
-      display: none; /* Hidden on mobile */
+      display: none;
       flex-direction: column;
       width: 100%;
       background-color: #0B066A;
@@ -51,7 +50,6 @@
       color: white;
     }
 
-    /* Desktop Nav */
     @media (min-width: 768px) {
       .hamburger {
         display: none;
@@ -70,7 +68,6 @@
     }
 
     /* ------------------ STORIES SIDEBAR ------------------ */
-
     .menu {
       float: right;
       width: 20%;
@@ -92,13 +89,11 @@
       text-decoration: none;
     }
 
-    /* HIDE THE SIDEBAR ON MOBILE */
     @media (max-width: 700px) {
       .menu {
         display: none;
       }
 
-      /* Mobile stories button */
       .stories-toggle {
         display: block;
         background-color: #45CADB;
@@ -112,7 +107,6 @@
         cursor: pointer;
       }
 
-      /* Hidden story links */
       .stories-mobile {
         display: none;
         flex-direction: column;
@@ -132,7 +126,6 @@
       }
     }
 
-    /* Desktop: hide mobile tab */
     @media (min-width: 700px) {
       .stories-toggle,
       .stories-mobile {
@@ -148,7 +141,6 @@
       margin: 0px 20px 7px 0px;
     }
 
-    /* ------- FIX MOBILE LAYOUT ------- */
     @media (max-width: 700px) {
       .main {
         width: 100%;
@@ -160,71 +152,68 @@
         text-align: center;
       }
     }
+
     /* -------- Recommended Sites Section -------- */
+    .recommended-box {
+      background-color: #EAE9EC;
+      border: 3px solid #8C8698;
+      border-radius: 20px;
+      padding: 25px;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 900px;
+      text-align: center;
+    }
 
-.recommended-box {
-  background-color: #EAE9EC;
-  border: 3px solid #8C8698;
-  border-radius: 20px;
-  padding: 25px;
-  margin: 40px auto;
-  width: 90%;
-  max-width: 900px;
-  text-align: center;
-}
+    .recommended-box h2 {
+      font-size: 32px;
+      margin-bottom: 5px;
+      color: #333;
+    }
 
-.recommended-box h2 {
-  font-size: 32px;
-  margin-bottom: 5px;
-  color: #333;
-}
+    .recommended-box p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #444;
+    }
 
-.recommended-box p {
-  font-size: 18px;
-  margin-bottom: 30px;
-  color: #444;
-}
+    .recommended-grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
 
-.recommended-grid {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
+    .recommended-item {
+      width: 180px;
+      text-align: center;
+      margin: 15px;
+    }
 
-.recommended-item {
-  width: 180px;
-  text-align: center;
-  margin: 15px;
-}
+    .recommended-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
 
-.recommended-item img {
-  width: 70px;
-  height: 70px;
-  display: block;
-  margin: 0 auto 10px auto;
-}
+    .recommended-item a {
+      color: #0B5BB5;
+      font-size: 18px;
+      text-decoration: none;
+    }
 
-.recommended-item a {
-  color: #0B5BB5;
-  font-size: 18px;
-  text-decoration: none;
-}
+    .recommended-item a:hover {
+      text-decoration: underline;
+    }
 
-.recommended-item a:hover {
-  text-decoration: underline;
-}
-
-/* Mobile fix */
-@media (max-width: 700px) {
-  .recommended-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
+    @media (max-width: 700px) {
+      .recommended-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
 
     /* ------------------ FOOTER ------------------ */
-
     .footer {
       background-color: #0B066A;
       display: flex;
@@ -239,7 +228,6 @@
       color: #f2f2f2;
       text-decoration: none;
     }
-    
   </style>
 
   <script>
@@ -274,7 +262,7 @@
     <h2>Who am I?</h2>
   </div>
 
-  <!-- ------------ MOBILE STORIES BUTTON ---------------- -->
+  <!-- ------------ MOBILE STORIES ---------------- -->
   <div class="stories-toggle" onclick="toggleStories()">Stories ▼</div>
 
   <div class="stories-mobile" id="storiesMobile">
@@ -286,10 +274,8 @@
     <a href="https://zaba-5.github.io/ITSS3390/story_6#">West Coast Roadtrip</a>
   </div>
 
-  <!-- ------------ CONTENT AREA ---------------- -->
+  <!-- ------------ CONTENT ---------------- -->
   <div style="overflow:auto">
-
-    <!-- DESKTOP SIDEBAR -->
     <div class="menu">
       <p style="color:black; font-weight:bold; font-size: 18px; margin-top:12px">Stories</p>
       <a href="https://zaba-5.github.io/ITSS3390/story_1#">Who am I?</a>
@@ -301,54 +287,41 @@
     </div>
 
     <div class="main">
-      <p>
-      Hey everyone, I'm Alex. At 20 years old, I'm currently navigating life as a Data Science student from Madrid while spending this academic year as an exchange student at the University of Texas at Dallas.
-      </p>
+      <p>Hey everyone, I'm Alex. At 20 years old, I'm currently navigating life as a Data Science student from Madrid while spending this academic year as an exchange student at the University of Texas at Dallas.</p>
       <img src="https://static.vecteezy.com/system/resources/thumbnails/008/695/917/small_2x/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg"
-          style="display:block; margin: 20px auto; max-width:300px;">
-      <p>
-I originally hail from northern Spain, specifically a town called Tolosa in the Basque Country. While I moved to Madrid when I was 11 due to my parents' work, those early years in the north definitely shaped part of my identity. The transition from a small town to a bustling capital like Madrid was significant, teaching me early on how to adapt to new environments and cultures - something that's proving incredibly valuable during my time here in the States.
-        </p>
-      <p>
-My path to Data Science wasn't exactly random. I've always been drawn to mathematics - there's something compelling about its precision and logic. When I discovered coding during high school, it felt like finding the perfect complement to my mathematical interests. The ability to not just solve problems but to actually build solutions through code completely captured my attention. Data Science emerged as the natural intersection of these two passions, allowing me to work with complex datasets while applying both analytical thinking and programming skills.
-        </p>
-      <p>
-What excites me most about this field is how it blends theory with practical application. Whether it's working on machine learning projects or analyzing patterns in large datasets, I appreciate how Data Science provides tools to extract meaningful insights from what might otherwise seem like random information. It's this combination of rigorous analysis and creative problem-solving that keeps me engaged and motivated in my studies.
-        </p>
-      <p>
-
-Through this blog, I plan to share my experiences balancing student life between two countries, my academic journey in Data Science, and the various projects I'm working on. I'll also document some of the cultural adjustments and discoveries that come with living in Texas while maintaining my roots in Spain.
-</p>
-      <p>
-I'm looking forward to sharing this journey with you all, and I'm excited to connect with others who share similar interests in technology, data, and international student experiences.
-
-</p>
+           style="display:block; margin: 20px auto; max-width:300px;">
+      <p>I originally hail from northern Spain, specifically a town called Tolosa in the Basque Country. While I moved to Madrid when I was 11 …</p>
+      <p>My path to Data Science wasn't exactly random …</p>
+      <p>What excites me most about this field …</p>
+      <p>Through this blog, I plan to share my experiences …</p>
+      <p>I'm looking forward to sharing this journey with you all …</p>
     </div>
-
   </div>
-<div class="recommended-box">
-  <h2>Recommended Sites</h2>
-  <p>Here are some useful links about Dallas and Texas!</p>
 
-  <div class="recommended-grid">
+  <!-- ------------ RECOMMENDED SITES ---------------- -->
+  <div class="recommended-box">
+    <h2>Recommended Sites</h2>
+    <p>Here are some useful links related to my background and universities!</p>
 
-    <<div class="recommended-item">
-      <i class="fas fa-globe"></i>
-      <a href="https://www.tolosaldea.eus/en" target="_blank" rel="noopener">Tolosaldea</a>
+    <div class="recommended-grid">
+
+      <div class="recommended-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Escudo_de_Tolosa%2C_Gipuzkoa.svg" alt="Tolosa coat of arms">
+        <a href="https://www.tolosaldea.eus/en" target="_blank" rel="noopener">Tolosaldea</a>
+      </div>
+
+      <div class="recommended-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Logo_UC3M.svg" alt="UC3M Logo">
+        <a href="https://www.uc3m.es/Home" target="_blank" rel="noopener">UC3M</a>
+      </div>
+
+      <div class="recommended-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/UT_Dallas_Monogram.png" alt="UT Dallas Monogram">
+        <a href="https://www.utdallas.edu/" target="_blank" rel="noopener">UT Dallas</a>
+      </div>
+
     </div>
-
-    <div class="recommended-item">
-      <i class="fas fa-university"></i>
-      <a href="https://www.uc3m.es/Home" target="_blank" rel="noopener">UC3M</a>
-    </div>
-
-    <div class="recommended-item">
-      <i class="fas fa-school"></i>
-      <a href="https://www.utdallas.edu/" target="_blank" rel="noopener">UT Dallas</a>
-    </div>
-
   </div>
-</div>
 
   <!-- ------------ FOOTER ---------------- -->
   <footer class="footer">
@@ -361,5 +334,4 @@ I'm looking forward to sharing this journey with you all, and I'm excited to con
   </footer>
 
 </body>
-
 </html>
