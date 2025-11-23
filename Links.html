@@ -4,8 +4,6 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
   <style>
     * {
       box-sizing: border-box;
@@ -14,8 +12,64 @@
     body {
       font-family: Verdana;
       background-color: #EAE9EC;
+      margin: 0;
     }
 
+    /* ------------------- NAVIGATION (Mobile First) ------------------- */
+
+    .topnav {
+      background-color: #0B066A;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+    }
+
+    .menu-links {
+      display: none; /* Hidden on mobile */
+      flex-direction: column;
+      width: 100%;
+      background-color: #0B066A;
+      text-align: center;
+    }
+
+    .menu-links a {
+      padding: 12px;
+      text-decoration: none;
+      color: white;
+      display: block;
+    }
+
+    .menu-links a:hover {
+      background-color: #5753A2;
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* Desktop Nav */
+    @media (min-width: 768px) {
+      .hamburger {
+        display: none;
+      }
+
+      .menu-links {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        background: none;
+      }
+
+      .menu-links a {
+        display: inline-block;
+      }
+    }
+
+    /* ------------------ MAIN ------------------ */
     .main {
       float: right;
       width: 70%;
@@ -23,110 +77,86 @@
       margin: 0px 20px 7px 0px;
     }
 
-    .topnav {
-      overflow: hidden;
+    /* ------- FIX MOBILE LAYOUT ------- */
+    @media (max-width: 700px) {
+      .main {
+        width: 100%;
+        margin: 0;
+        float: none;
+      }
+
+      .main p {
+        text-align: center;
+      }
+    }
+
+    /* ------------------ FOOTER ------------------ */
+
+    .footer {
       background-color: #0B066A;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      position: relative;
-      padding: 10px 0;
-    }
-
-    .topnav a {
+      padding: 7px 10px;
       color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
+      margin-top: 30px;
+    }
+
+    .footer a {
+      color: #f2f2f2;
       text-decoration: none;
-      font-size: 14px;
     }
-
-    .topnav a:hover {
-      background-color: #5753A2;
-      border-radius: 5px;
-    }
-
-    .box-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      width: 80%;
-      margin: 20px auto;
-    }
-
-    .box {
-      background-color: white;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      min-height: 120px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    }
-
-    @media (max-width: 768px) {
-      .box-container {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .box-container {
-        grid-template-columns: 1fr;
-      }
-    }
-    .footer {
-  overflow: hidden;
-  background-color: #0B066A;
-  display: flex;
-  justify-content: space-between; /* distributes items left and right */
-  align-items: center;
-  position: relative;
-  padding: 7px 10px;
-  color: #f2f2f2;
-}
-
-.footer a {
-  color: #f2f2f2;
-  text-decoration: none;
-}
   </style>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menuLinks");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+
+    function toggleStories() {
+      const s = document.getElementById("storiesMobile");
+      s.style.display = (s.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
 </head>
 
 <body>
 
+  <!-- ------------ NAV ---------------- -->
   <div class="topnav">
-    <a href="javascript:void(0);" onclick="toggleMenu()" style="font-size:24px;">&#9776;</a>
-    <a href="https://zaba-5.github.io/ITSS3390/">Home</a>
-    <a href="#">Links</a>
-    <a href="#">First Story</a>
-    <a href="#">Last Story</a>
-    <a href="#">About Me</a>
+    <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+
+    <div class="menu-links" id="menuLinks">
+      <a href="https://zaba-5.github.io/ITSS3390/">Home</a>
+      <a href="https://zaba-5.github.io/ITSS3390/Links">Links</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_2">First Story</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_4">Last Story</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_1">About Me</a>
+    </div>
   </div>
 
-  <div style="background-color:#0B066A; color:#FFFFFF; padding:2px; text-align:center; margin-bottom:0;">
-    <h2>Links</h2>
+  <div style="background-color:#0B066A; color: #FFFFFF; padding: 2px; text-align:center; margin-bottom: 30px">
+    <h2>Relevant Links</h2>
   </div>
 
+  <!-- ------------ CONTENT AREA ---------------- -->
+  <div style="overflow:auto">
+    <div class="main">
+      <p>Links will be here</p>
+    </div>
 
-  <footer class=footer>
-    <p> URL:  
-      <a href="https://zaba-5.github.io/ITSS3390/" style="color: #f2f2f2">https://zaba-5.github.io/ITSS3390/</a>
-    </p>
+  </div>
+
+  <!-- ------------ FOOTER ---------------- -->
+  <footer class="footer">
     <p>
-      <span style="font-size: 20px;">&#9786;</span>
-      Enjoy
-      <span style="font-size: 20px;">&#9786;</span>
+      URL:
+      <a href="https://zaba-5.github.io/ITSS3390/">https://zaba-5.github.io/ITSS3390/</a>
     </p>
+    <p><span style="font-size: 20px;">&#9786;</span> Enjoy <span style="font-size: 20px;">&#9786;</span></p>
     <p>Author: Alex Zabaleta Lacunza</p>
   </footer>
-  
 
 </body>
 
