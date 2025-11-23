@@ -1,185 +1,279 @@
+<!DOCTYPE html>
+<html>
 
-<Doctype! html>
-  <html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <head>
-    <meta name="viewport" content="width=device-width" intial-scale="1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <style>
-      * {
-        box-sizing: border-box;
+    body {
+      font-family: Verdana;
+      background-color: #EAE9EC;
+      margin: 0;
+    }
+
+    /* ------------------- NAVIGATION (Mobile First) ------------------- */
+
+    .topnav {
+      background-color: #0B066A;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+    }
+
+    .menu-links {
+      display: none; /* Hidden on mobile */
+      flex-direction: column;
+      width: 100%;
+      background-color: #0B066A;
+      text-align: center;
+    }
+
+    .menu-links a {
+      padding: 12px;
+      text-decoration: none;
+      color: white;
+      display: block;
+    }
+
+    .menu-links a:hover {
+      background-color: #5753A2;
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* Desktop Nav */
+    @media (min-width: 768px) {
+      .hamburger {
+        display: none;
       }
 
+      .menu-links {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        background: none;
+      }
+
+      .menu-links a {
+        display: inline-block;
+      }
+    }
+
+    /* ------------------ STORIES SIDEBAR ------------------ */
+
+    .menu {
+      float: right;
+      width: 20%;
+      text-align: center;
+      border: 2px solid #8C8698;
+      margin-right: 15px;
+      border-radius: 15px;
+    }
+
+    .menu a {
+      background-color: #45CADB;
+      padding: 8px;
+      margin: 7px auto;
+      display: block;
+      width: 90%;
+      color: black;
+      text-align: center;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    /* HIDE THE SIDEBAR ON MOBILE */
+    @media (max-width: 700px) {
       .menu {
-        float: right;
-        width: 20%;
-        text-align: center;
-        border: 2px solid #8C8698;
-        margin-right: 15px;
-        border-radius: 15px;  
+        display: none;
       }
 
-      .menu a {
+      /* Mobile stories button */
+      .stories-toggle {
+        display: block;
+        background-color: #45CADB;
+        color: black;
+        width: 180px;
+        margin: 10px auto;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      /* Hidden story links */
+      .stories-mobile {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .stories-mobile a {
         background-color: #45CADB;
         padding: 8px;
-        margin: 7px auto;        
-        display: block;
-        width: 90%;              
-        color: black;
-        text-align: center;
-        border-radius: 10px; 
-      }
-
-      .main {
-        float: Right;
+        margin: 6px;
         width: 70%;
-        padding: 0 10px;
-        margin: 0px 20px 7px 0px;
-      }
-      .topnav {
-        overflow: hidden;
-        background-color: #0B066A;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        padding: 10px 0;
-      }
-      .topnav a {
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
+        border-radius: 10px;
+        color: black;
         text-decoration: none;
-        font-size: 14px;
+        text-align: center;
       }
-      
-      .topnav a:hover {
-        background-color: #5753A2;
-        border-radius: 5px;
-      }
-      .footer {
-  overflow: hidden;
-  background-color: #0B066A;
-  display: flex;
-  justify-content: space-between; /* distributes items left and right */
-  align-items: center;
-  position: relative;
-  padding: 7px 10px;
-  color: #f2f2f2;
-}
+    }
 
-.footer a {
-  color: #f2f2f2;
-  text-decoration: none;
-}
-      
-    </style>
-  </head>
-  
-  <body style="font-family:Verdana;
-               background-color:#EAE9EC">
-    <div class="topnav">
-      <a href="javascript:void(0);" onclick="toggleMenu()" style="font-size:24px;">&#9776; </a>
+    /* Desktop: hide mobile tab */
+    @media (min-width: 700px) {
+      .stories-toggle,
+      .stories-mobile {
+        display: none;
+      }
+    }
+
+    /* ------------------ MAIN ------------------ */
+    .main {
+      float: right;
+      width: 70%;
+      padding: 0 10px;
+      margin: 0px 20px 7px 0px;
+    }
+
+    /* ------- FIX MOBILE LAYOUT ------- */
+    @media (max-width: 700px) {
+      .main {
+        width: 100%;
+        margin: 0;
+        float: none;
+      }
+
+      .main p {
+        text-align: center;
+      }
+    }
+
+    /* ------------------ FOOTER ------------------ */
+
+    .footer {
+      background-color: #0B066A;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 10px;
+      color: #f2f2f2;
+      margin-top: 30px;
+    }
+
+    .footer a {
+      color: #f2f2f2;
+      text-decoration: none;
+    }
+  </style>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menuLinks");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+
+    function toggleStories() {
+      const s = document.getElementById("storiesMobile");
+      s.style.display = (s.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- ------------ NAV ---------------- -->
+  <div class="topnav">
+    <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+
+    <div class="menu-links" id="menuLinks">
       <a href="https://zaba-5.github.io/ITSS3390/">Home</a>
-      <a href="#">Holder 2</a>
-      <a href="#">Holder 3</a>
-      <a href="#">Holder 4</a>
-      <a href="#">Holder 5</a>
-      <a href="#">Holder 6</a>
+      <a href="https://zaba-5.github.io/ITSS3390/Links">Links</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_2">First Story</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_4">Last Story</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_1">About Me</a>
     </div>
-    <div style="background-color:#0B066A;
-                color: #FFFFFF ;
-                  padding: 2px;
-                  text-align:center;
-                margin-bottom: 30px">
-      <h2>Halloween at New Orleans</h2>
-      
+  </div>
+
+  <div style="background-color:#0B066A; color: #FFFFFF; padding: 2px; text-align:center; margin-bottom: 30px">
+    <h2>Halloween at New Orleans</h2>
+  </div>
+
+  <!-- ------------ MOBILE STORIES BUTTON ---------------- -->
+  <div class="stories-toggle" onclick="toggleStories()">Stories ▼</div>
+
+  <div class="stories-mobile" id="storiesMobile">
+    <a href="https://zaba-5.github.io/ITSS3390/story_1#">Who am I?</a>
+    <a href="https://zaba-5.github.io/ITSS3390/story_2#">Arrival</a>
+    <a href="https://zaba-5.github.io/ITSS3390/story_3#">First Week</a>
+    <a href="https://zaba-5.github.io/ITSS3390/story_4#">Texan Activities</a>
+    <a href="https://zaba-5.github.io/ITSS3390/story_5#">Halloween</a>
+    <a href="https://zaba-5.github.io/ITSS3390/story_6#">West Coast Roadtrip</a>
+  </div>
+
+  <!-- ------------ CONTENT AREA ---------------- -->
+  <div style="overflow:auto">
+
+    <!-- DESKTOP SIDEBAR -->
+    <div class="menu">
+      <p style="color:black; font-weight:bold; font-size: 18px; margin-top:12px">Stories</p>
+      <a href="https://zaba-5.github.io/ITSS3390/story_1#">Who am I?</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_2#">Arrival</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_3#">First Week</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_4#">Texan Activities</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_5#">Halloween</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_6#">West Coast Roadtrip</a>
     </div>
 
-    <div style="overflow:auto">
-      <div class="menu">
-        <p style="color:black;
-                  font-weight:bold;
-                  font-size: 18px;
-                  margin-top:12px">
-          Stories
+    <div class="main">
+      <p>
+      Hey everyone, I'm Alex. At 20 years old, I'm currently navigating life as a Data Science student from Madrid while spending this academic year as an exchange student at the University of Texas at Dallas.
+      </p>
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/008/695/917/small_2x/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg"
+          style="display:block; margin: 20px auto; max-width:300px;">
+      <p>
+I originally hail from northern Spain, specifically a town called Tolosa in the Basque Country. While I moved to Madrid when I was 11 due to my parents' work, those early years in the north definitely shaped part of my identity. The transition from a small town to a bustling capital like Madrid was significant, teaching me early on how to adapt to new environments and cultures - something that's proving incredibly valuable during my time here in the States.
         </p>
-        <a href="https://zaba-5.github.io/ITSS3390/story_1#">Who am I?</a>
-        <a href="https://zaba-5.github.io/ITSS3390/story_2#">Arrival</a>
-        <a href="https://zaba-5.github.io/ITSS3390/story_3#">First Week of Classes</a>
-        <a href="https://zaba-5.github.io/ITSS3390/story_4#">Texan Activities</a>
-        <a href="https://zaba-5.github.io/ITSS3390/story_5#">Halloween at New Orleans</a>
-        <a href="https://zaba-5.github.io/ITSS3390/story_6#">West Coast Roadtrip</a>
-      </div>
-
-      <div class="main">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/008/695/917/small_2x/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg" 
-     style="display:block; margin: 20px auto; max-width:300px;">
-
-
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+      <p>
+My path to Data Science wasn't exactly random. I've always been drawn to mathematics - there's something compelling about its precision and logic. When I discovered coding during high school, it felt like finding the perfect complement to my mathematical interests. The ability to not just solve problems but to actually build solutions through code completely captured my attention. Data Science emerged as the natural intersection of these two passions, allowing me to work with complex datasets while applying both analytical thinking and programming skills.
         </p>
-      </div>
-      
-      
-    </div>
+      <p>
+What excites me most about this field is how it blends theory with practical application. Whether it's working on machine learning projects or analyzing patterns in large datasets, I appreciate how Data Science provides tools to extract meaningful insights from what might otherwise seem like random information. It's this combination of rigorous analysis and creative problem-solving that keeps me engaged and motivated in my studies.
+        </p>
+      <p>
 
-     <div style="border: 2px solid #8C8698;
-        margin: 15px 100px;
-        border-radius: 15px;
-        padding: 20px;
-        text-align:center">
-        
-  <h2>Recommended Sites</h2>
-  <p>Here are some useful links about Dallas and Texas!</p>
-  
-  <div style="display:flex; justify-content:space-around; flex-wrap:wrap;">
+Through this blog, I plan to share my experiences balancing student life between two countries, my academic journey in Data Science, and the various projects I'm working on. I'll also document some of the cultural adjustments and discoveries that come with living in Texas while maintaining my roots in Spain.
+</p>
+      <p>
+I'm looking forward to sharing this journey with you all, and I'm excited to connect with others who share similar interests in technology, data, and international student experiences.
 
-    <!-- link 1 -->
-    <div style="width: 15%; margin:10px;">
-      <a href="https://www.dallasnews.com/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/21/21601.png" 
-             style="width:100%; border-radius:10px;">
-        <p style="margin-top:6px; font-size:12px;">Dallas Morning News</p>
-      </a>
-    </div>
-
-    <!-- link 2 -->
-    <div style="width: 15%; margin:10px;">
-      <a href="https://www.visitdallas.com/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" 
-             style="width:100%; border-radius:10px;">
-        <p style="margin-top:6px; font-size:12px;">Visit Dallas</p>
-      </a>
-    </div>
-
-    <!-- link 3 -->
-    <div style="width: 15%; margin:10px;">
-      <a href="https://www.texasobserver.org/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/443/443138.png" 
-             style="width:100%; border-radius:10px;">
-        <p style="margin-top:6px; font-size:12px;">Texas Observer</p>
-      </a>
+</p>
     </div>
 
   </div>
-</div>
-    
-    
-    <footer class=footer>
-    <p> URL:  
-      <a href="https://zaba-5.github.io/ITSS3390/" style="color: #f2f2f2">https://zaba-5.github.io/ITSS3390/</a>
-    </p>
+
+  <!-- ------------ FOOTER ---------------- -->
+  <footer class="footer">
     <p>
-      <span style="font-size: 20px;">&#9786;</span>
-      Enjoy
-      <span style="font-size: 20px;">&#9786;</span>
+      URL:
+      <a href="https://zaba-5.github.io/ITSS3390/">https://zaba-5.github.io/ITSS3390/</a>
     </p>
+    <p><span style="font-size: 20px;">&#9786;</span> Enjoy <span style="font-size: 20px;">&#9786;</span></p>
     <p>Author: Alex Zabaleta Lacunza</p>
   </footer>
-    
-  </body>
-  </html>
+
+</body>
+
+</html>
