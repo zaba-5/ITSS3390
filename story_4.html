@@ -161,6 +161,69 @@
       }
     }
 
+    /* -------- Recommended Sites Section -------- */
+
+.recommended-box {
+  background-color: #EAE9EC;
+  border: 3px solid #8C8698;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.recommended-box h2 {
+  font-size: 32px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.recommended-box p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+.recommended-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.recommended-item {
+  width: 180px;
+  text-align: center;
+  margin: 15px;
+}
+
+.recommended-item img {
+  width: 70px;
+  height: 70px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.recommended-item a {
+  color: #0B5BB5;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.recommended-item a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile fix */
+@media (max-width: 700px) {
+  .recommended-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
     /* ------------------ FOOTER ------------------ */
 
     .footer {
@@ -177,6 +240,7 @@
       color: #f2f2f2;
       text-decoration: none;
     }
+    
   </style>
 
   <script>
@@ -239,30 +303,46 @@
 
     <div class="main">
       <p>
-      Hey everyone, I'm Alex. At 20 years old, I'm currently navigating life as a Data Science student from Madrid while spending this academic year as an exchange student at the University of Texas at Dallas.
-      </p>
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/008/695/917/small_2x/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg"
+      If my first few weeks were about settling in, the last months have been about diving headfirst into the deep end of Texan culture. I’ve traded textbooks for playbooks and algorithms for arena lights, and let me tell you, the data I’ve collected on how Dallas has fun is incredibly compelling.
+<br><br>
+My American sports education began with a masterpiece of excess: AT&T Stadium. I went to see the Dallas Cowboys take on the Washington Commanders. The final score was a whopping 44-22 for the Cowboys, but the real story was the stadium itself. The place is a cathedral of football, and the massive, high-definition screen hanging from the ceiling feels like something from the future. The energy from the crowd was a different kind of passion than what I’m used to at a football (soccer) match, but it was just as electric.
+<br>
+        <br>
+From one kind of cowboy to another, my next stop was a real rodeo. This was a fascinating glimpse into a world I’d only ever seen in movies. I thought it was just about staying on a bucking bull, but there’s so much more to it. I was particularly amazed by the steer wrestling, where riders leap from their horses to wrestle young steers to the ground in a matter of seconds. Seeing the precision, timing, and raw bravery of these athletes up close was a completely new and unforgettable experience.
+<br><br>
+In the spirit of trying everything once, I visited a firing range. As someone from a country with very strict gun laws, this was a profound cultural experience. I started with a .22 caliber handgun and rifle, which were manageable. But then I tried a larger caliber handgun, and the sheer power and recoil of it was a physical shock I won’t soon forget. It was an interesting, if slightly intimidating, afternoon that gave me a very tangible understanding of a complex part of American life.
+ <img src="z_image_story4.jpg" alt="NBA Game Selfie"
           style="display:block; margin: 20px auto; max-width:300px;">
-      <p>
-I originally hail from northern Spain, specifically a town called Tolosa in the Basque Country. While I moved to Madrid when I was 11 due to my parents' work, those early years in the north definitely shaped part of my identity. The transition from a small town to a bustling capital like Madrid was significant, teaching me early on how to adapt to new environments and cultures - something that's proving incredibly valuable during my time here in the States.
-        </p>
-      <p>
-My path to Data Science wasn't exactly random. I've always been drawn to mathematics - there's something compelling about its precision and logic. When I discovered coding during high school, it felt like finding the perfect complement to my mathematical interests. The ability to not just solve problems but to actually build solutions through code completely captured my attention. Data Science emerged as the natural intersection of these two passions, allowing me to work with complex datasets while applying both analytical thinking and programming skills.
-        </p>
-      <p>
-What excites me most about this field is how it blends theory with practical application. Whether it's working on machine learning projects or analyzing patterns in large datasets, I appreciate how Data Science provides tools to extract meaningful insights from what might otherwise seem like random information. It's this combination of rigorous analysis and creative problem-solving that keeps me engaged and motivated in my studies.
-        </p>
-      <p>
-
-Through this blog, I plan to share my experiences balancing student life between two countries, my academic journey in Data Science, and the various projects I'm working on. I'll also document some of the cultural adjustments and discoveries that come with living in Texas while maintaining my roots in Spain.
-</p>
-      <p>
-I'm looking forward to sharing this journey with you all, and I'm excited to connect with others who share similar interests in technology, data, and international student experiences.
-
-</p>
+But the absolute crown jewel of my sports streak was the NBA game. I saw the Dallas Mavericks take on the LA Clippers in the new In-Season Tournament. The game was absolutely insane—it went to double overtime! We got to witness a legendary performance, with James Harden dropping a 40-point triple-double. The back-and-forth intensity, the roar of the crowd with every clutch basket, and the sheer athleticism on display was unlike any live sporting event I’ve ever attended. It was pure, unscripted drama.
+<br><br>
+So, there you have it. I’ve gone from the gridiron to the dirt ring, from the firing line to the hardwood court. Each event has been a unique data point in understanding this place, and so far, the analysis shows that Texas knows how to put on a show.
+      </p>
+      
     </div>
 
   </div>
+
+<!-- ------------ RECOMMENDED SITES ---------------- -->
+<div class="recommended-box">
+  <h2>Recommended Sites</h2>
+  <p>Here are some useful links about Dallas and Texas!</p>
+
+  <div class="recommended-grid">
+
+    <div class="recommended-item">
+      <a href="https://international.utdallas.edu/isso/student-life/welcome-guide/" target="_blank">
+        UTD Welcome<br>Guide
+      </a>
+    </div>
+
+    <div class="recommended-item">
+      <a href="https://www.dart.org/" target="_blank">
+        Dallas Area<br>Rapid Transit
+      </a>
+    </div>
+
+  </div>
+</div>
 
   <!-- ------------ FOOTER ---------------- -->
   <footer class="footer">
