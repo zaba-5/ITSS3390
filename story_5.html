@@ -161,6 +161,69 @@
       }
     }
 
+    /* -------- Recommended Sites Section -------- */
+
+.recommended-box {
+  background-color: #EAE9EC;
+  border: 3px solid #8C8698;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.recommended-box h2 {
+  font-size: 32px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.recommended-box p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+.recommended-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.recommended-item {
+  width: 180px;
+  text-align: center;
+  margin: 15px;
+}
+
+.recommended-item img {
+  width: 70px;
+  height: 70px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.recommended-item a {
+  color: #0B5BB5;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.recommended-item a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile fix */
+@media (max-width: 700px) {
+  .recommended-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
     /* ------------------ FOOTER ------------------ */
 
     .footer {
@@ -177,6 +240,7 @@
       color: #f2f2f2;
       text-decoration: none;
     }
+    
   </style>
 
   <script>
@@ -239,30 +303,44 @@
 
     <div class="main">
       <p>
-      Hey everyone, I'm Alex. At 20 years old, I'm currently navigating life as a Data Science student from Madrid while spending this academic year as an exchange student at the University of Texas at Dallas.
-      </p>
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/008/695/917/small_2x/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg"
+      For a much-needed break from Texas, me and seven other Spaniards packed our bags (and our costumes) for a long weekend getaway to a truly iconic American city: New Orleans for Halloween.
+<br><br>
+Let’s talk about the elephant in the room: Bourbon Street. I’ll be honest, it was… disappointing. Maybe the hype was too big, but the combination of overwhelming crowds and the, let's say, unique smell, made it an experience we were happy to check off the list and then move on from. The real magic of New Orleans, we discovered, was just a few blocks away.
+<br><br>
+What truly caught us off guard, in the best way possible, was the city's deep respect for its Spanish history. We were constantly surprised to see plaques and street names that referenced the time when New Orleans was part of the Spanish Empire. Seeing names like "Calle de" and historical markers detailing Spanish governance felt surreal. It was a strange and proud feeling to be a Spaniard walking down a street that still bore the name our ancestors gave it centuries ago.
+<br><br>
+The areas closer to the Mississippi River, like the French Quarter's Jackson Square, were absolutely beautiful. With the historic Spanish and French architecture, live jazz music floating through the air, and the buzz of artists, it felt like the authentic, cultured heart of the city. We also explored the more modern Garden District, with its stunning mansions and quiet, oak-lined streets. The contrast was striking.
+<br><br>
+The highlight of the trip was meeting up with a group of Spanish students who are on exchange at Tulane University. It was fantastic to compare notes on our American experiences and explore the city together. And of course, it was Halloween, so the costume game was strong. Our group was a walking, talking ensemble cast featuring Teletubbies, a rugged pirate, a brilliantly detailed steampunk adventurer, and myself, doing my best to channel the chaotic energy of The Joker.
+<img src="z_image_story5.jpg" alt="Halloween Costumes"
           style="display:block; margin: 20px auto; max-width:300px;">
-      <p>
-I originally hail from northern Spain, specifically a town called Tolosa in the Basque Country. While I moved to Madrid when I was 11 due to my parents' work, those early years in the north definitely shaped part of my identity. The transition from a small town to a bustling capital like Madrid was significant, teaching me early on how to adapt to new environments and cultures - something that's proving incredibly valuable during my time here in the States.
-        </p>
-      <p>
-My path to Data Science wasn't exactly random. I've always been drawn to mathematics - there's something compelling about its precision and logic. When I discovered coding during high school, it felt like finding the perfect complement to my mathematical interests. The ability to not just solve problems but to actually build solutions through code completely captured my attention. Data Science emerged as the natural intersection of these two passions, allowing me to work with complex datasets while applying both analytical thinking and programming skills.
-        </p>
-      <p>
-What excites me most about this field is how it blends theory with practical application. Whether it's working on machine learning projects or analyzing patterns in large datasets, I appreciate how Data Science provides tools to extract meaningful insights from what might otherwise seem like random information. It's this combination of rigorous analysis and creative problem-solving that keeps me engaged and motivated in my studies.
-        </p>
-      <p>
-
-Through this blog, I plan to share my experiences balancing student life between two countries, my academic journey in Data Science, and the various projects I'm working on. I'll also document some of the cultural adjustments and discoveries that come with living in Texas while maintaining my roots in Spain.
-</p>
-      <p>
-I'm looking forward to sharing this journey with you all, and I'm excited to connect with others who share similar interests in technology, data, and international student experiences.
-
-</p>
+Navigating the festive, costumed crowds with our little Spanish cohort, finding amazing food, and connecting with a forgotten piece of our own history made the trip unforgettable. It was a whirlwind of culture, both past and present—a perfect slice of America, enjoyed through a very Spanish lens.
+      </p>
+      
     </div>
 
   </div>
+
+<!-- ------------ RECOMMENDED SITES ---------------- -->
+<div class="recommended-box">
+  <h2>Recommended Sites</h2>
+  <p>Here are some useful links about Dallas and Texas!</p>
+
+  <div class="recommended-grid">
+
+    <div class="recommended-item">
+      <a href="https://www.neworleans.com/things-to-do/multicultural/cultures/spanish/" target="_blank">
+        History of Spanish<br>New Orleans
+      </a>
+    </div>
+<div class="recommended-item">
+      <a href="https://www.frenchquarter.com/" target="_blank">
+        French <br>Quarter
+      </a>
+    </div>
+
+  </div>
+</div>
 
   <!-- ------------ FOOTER ---------------- -->
   <footer class="footer">
