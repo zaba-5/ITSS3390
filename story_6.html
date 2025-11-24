@@ -161,6 +161,69 @@
       }
     }
 
+    /* -------- Recommended Sites Section -------- */
+
+.recommended-box {
+  background-color: #EAE9EC;
+  border: 3px solid #8C8698;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.recommended-box h2 {
+  font-size: 32px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.recommended-box p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+.recommended-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.recommended-item {
+  width: 180px;
+  text-align: center;
+  margin: 15px;
+}
+
+.recommended-item img {
+  width: 70px;
+  height: 70px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.recommended-item a {
+  color: #0B5BB5;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.recommended-item a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile fix */
+@media (max-width: 700px) {
+  .recommended-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
     /* ------------------ FOOTER ------------------ */
 
     .footer {
@@ -177,6 +240,7 @@
       color: #f2f2f2;
       text-decoration: none;
     }
+    
   </style>
 
   <script>
@@ -239,30 +303,46 @@
 
     <div class="main">
       <p>
-      Hey everyone, I'm Alex. At 20 years old, I'm currently navigating life as a Data Science student from Madrid while spending this academic year as an exchange student at the University of Texas at Dallas.
-      </p>
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/008/695/917/small_2x/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg"
+     If my previous trips were cultural deep dives, this one was a geographic pilgrimage. For Fall Break, we traded campus for the open road, embarking on the classic American West Coast RV trip. It was a week of staggering landscapes, long highways, and the kind of freedom you can only get with a motorhome and a map.
+<br><br>
+Our journey began in the artificial glow of Las Vegas. After a whirlwind of lights and sounds, we picked up our new home-on-wheels: a massive RV. Leaving the city behind, our first stop was the sheer, humbling scale of the Grand Canyon. No picture can prepare you for that vastness. From there, we ventured to Antelope Canyon, where we walked through waves of smooth, sculpted sandstone, with light beams cutting through the narrow slots above.
+<img src="z_image_story6.jpg" alt="Ceasars Palace"
           style="display:block; margin: 20px auto; max-width:300px;">
-      <p>
-I originally hail from northern Spain, specifically a town called Tolosa in the Basque Country. While I moved to Madrid when I was 11 due to my parents' work, those early years in the north definitely shaped part of my identity. The transition from a small town to a bustling capital like Madrid was significant, teaching me early on how to adapt to new environments and cultures - something that's proving incredibly valuable during my time here in the States.
-        </p>
-      <p>
-My path to Data Science wasn't exactly random. I've always been drawn to mathematics - there's something compelling about its precision and logic. When I discovered coding during high school, it felt like finding the perfect complement to my mathematical interests. The ability to not just solve problems but to actually build solutions through code completely captured my attention. Data Science emerged as the natural intersection of these two passions, allowing me to work with complex datasets while applying both analytical thinking and programming skills.
-        </p>
-      <p>
-What excites me most about this field is how it blends theory with practical application. Whether it's working on machine learning projects or analyzing patterns in large datasets, I appreciate how Data Science provides tools to extract meaningful insights from what might otherwise seem like random information. It's this combination of rigorous analysis and creative problem-solving that keeps me engaged and motivated in my studies.
-        </p>
-      <p>
+Then came the long haul. We pointed the RV west towards Yosemite National Park. The drive was an event in itself, culminating in a night spent at a remote campsite, where the only light came from a blanket of stars unlike anything we'd ever seen. Waking up in Yosemite Valley felt like entering a cathedral made of granite. We spent days hiking among giants, from the towering face of El Capitan to the serene waters of Mirror Lake. We even had our share of wildlife encounters, with deer grazing peacefully near the roads and the constant chatter of squirrels.
+<br><br>
+After the raw wilderness of Yosemite, the sleek skyline of San Francisco was a shock to the system. We spent a night exploring the vibrant streets and seeing the Golden Gate Bridge before beginning one of the most beautiful drives in the world: the Pacific Coast Highway. We broke up the journey with a stop in the beautiful, Spanish-style town of Santa Barbara, before finally reaching the urban sprawl of Los Angeles.
+<br><br>
+Our final push took us south to the laid-back, sunny shores of San Diego before turning inland for the long drive back to where we started: Las Vegas. As a reward for surviving a week in the RV, we splurged on a final night at Caesars Palace. Let me tell you, after days of communal living and campfire meals, the luxury of a king-sized bed and a massive shower felt like the pinnacle of human civilization.
+<br><br>
+This road trip was more than just a tour of famous places; it was a lesson in contrasts. The silence of the desert versus the noise of the city. The cost of a campground versus a night at a palace. It was the most challenging, exhausting, and utterly magnificent week of my life.
 
-Through this blog, I plan to share my experiences balancing student life between two countries, my academic journey in Data Science, and the various projects I'm working on. I'll also document some of the cultural adjustments and discoveries that come with living in Texas while maintaining my roots in Spain.
-</p>
-      <p>
-I'm looking forward to sharing this journey with you all, and I'm excited to connect with others who share similar interests in technology, data, and international student experiences.
 
-</p>
+      </p>
+      
     </div>
 
   </div>
+
+<!-- ------------ RECOMMENDED SITES ---------------- -->
+<div class="recommended-box">
+  <h2>Recommended Sites</h2>
+  <p>Here are some useful links about Dallas and Texas!</p>
+
+  <div class="recommended-grid">
+
+    <div class="recommended-item">
+      <a href="https://www.nps.gov/yose/index.htm" target="_blank">
+        Yosemite<br>National Park
+      </a>
+    </div>
+<div class="recommended-item">
+      <a href="https://www.visitcalifornia.com/" target="_blank">
+        California Highway<br>Travel Guide 
+      </a>
+    </div>
+
+  </div>
+</div>
 
   <!-- ------------ FOOTER ---------------- -->
   <footer class="footer">
