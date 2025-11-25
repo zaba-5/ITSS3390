@@ -15,8 +15,7 @@
       margin: 0;
     }
 
-    /* ------------------- NAVIGATION (Mobile First) ------------------- */
-
+    /* ------------------- NAVIGATION ------------------- */
     .topnav {
       background-color: #0B066A;
       padding: 10px;
@@ -27,7 +26,7 @@
     }
 
     .menu-links {
-      display: none; /* Hidden on mobile */
+      display: none;
       flex-direction: column;
       width: 100%;
       background-color: #0B066A;
@@ -51,7 +50,6 @@
       color: white;
     }
 
-    /* Desktop Nav */
     @media (min-width: 768px) {
       .hamburger {
         display: none;
@@ -70,7 +68,6 @@
     }
 
     /* ------------------ STORIES SIDEBAR ------------------ */
-
     .menu {
       float: right;
       width: 20%;
@@ -92,13 +89,11 @@
       text-decoration: none;
     }
 
-    /* HIDE THE SIDEBAR ON MOBILE */
     @media (max-width: 700px) {
       .menu {
         display: none;
       }
 
-      /* Mobile stories button */
       .stories-toggle {
         display: block;
         background-color: #45CADB;
@@ -112,7 +107,6 @@
         cursor: pointer;
       }
 
-      /* Hidden story links */
       .stories-mobile {
         display: none;
         flex-direction: column;
@@ -132,7 +126,6 @@
       }
     }
 
-    /* Desktop: hide mobile tab */
     @media (min-width: 700px) {
       .stories-toggle,
       .stories-mobile {
@@ -148,7 +141,6 @@
       margin: 0px 20px 7px 0px;
     }
 
-    /* ------- FIX MOBILE LAYOUT ------- */
     @media (max-width: 700px) {
       .main {
         width: 100%;
@@ -160,71 +152,68 @@
         text-align: center;
       }
     }
+
     /* -------- Recommended Sites Section -------- */
+    .recommended-box {
+      background-color: #EAE9EC;
+      border: 3px solid #8C8698;
+      border-radius: 20px;
+      padding: 25px;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 900px;
+      text-align: center;
+    }
 
-.recommended-box {
-  background-color: #EAE9EC;
-  border: 3px solid #8C8698;
-  border-radius: 20px;
-  padding: 25px;
-  margin: 40px auto;
-  width: 90%;
-  max-width: 900px;
-  text-align: center;
-}
+    .recommended-box h2 {
+      font-size: 32px;
+      margin-bottom: 5px;
+      color: #333;
+    }
 
-.recommended-box h2 {
-  font-size: 32px;
-  margin-bottom: 5px;
-  color: #333;
-}
+    .recommended-box p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #444;
+    }
 
-.recommended-box p {
-  font-size: 18px;
-  margin-bottom: 30px;
-  color: #444;
-}
+    .recommended-grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
 
-.recommended-grid {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
+    .recommended-item {
+      width: 180px;
+      text-align: center;
+      margin: 15px;
+    }
 
-.recommended-item {
-  width: 180px;
-  text-align: center;
-  margin: 15px;
-}
+    .recommended-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
 
-.recommended-item img {
-  width: 70px;
-  height: 70px;
-  display: block;
-  margin: 0 auto 10px auto;
-}
+    .recommended-item a {
+      color: #0B5BB5;
+      font-size: 18px;
+      text-decoration: none;
+    }
 
-.recommended-item a {
-  color: #0B5BB5;
-  font-size: 18px;
-  text-decoration: none;
-}
+    .recommended-item a:hover {
+      text-decoration: underline;
+    }
 
-.recommended-item a:hover {
-  text-decoration: underline;
-}
-
-/* Mobile fix */
-@media (max-width: 700px) {
-  .recommended-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
+    @media (max-width: 700px) {
+      .recommended-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
 
     /* ------------------ FOOTER ------------------ */
-
     .footer {
       background-color: #0B066A;
       display: flex;
@@ -239,7 +228,6 @@
       color: #f2f2f2;
       text-decoration: none;
     }
-    
   </style>
 
   <script>
@@ -271,25 +259,23 @@
   </div>
 
   <div style="background-color:#0B066A; color: #FFFFFF; padding: 2px; text-align:center; margin-bottom: 30px">
-    <h2>First Week of Classes</h2>
+    <h2>A Week in Dallas</h2>
   </div>
 
-  <!-- ------------ MOBILE STORIES BUTTON ---------------- -->
+  <!-- ------------ MOBILE STORIES ---------------- -->
   <div class="stories-toggle" onclick="toggleStories()">Stories ▼</div>
 
   <div class="stories-mobile" id="storiesMobile">
     <a href="https://zaba-5.github.io/ITSS3390/story_1#">Who am I?</a>
     <a href="https://zaba-5.github.io/ITSS3390/story_2#">Arrival</a>
-    <a href="https://zaba-5.github.io/ITSS3390/story_3#">First Week</a>
+    <a href="https://zaba-5.github.io/ITSS3390/story_3#">A Week in Dallas</a>
     <a href="https://zaba-5.github.io/ITSS3390/story_4#">Texan Activities</a>
     <a href="https://zaba-5.github.io/ITSS3390/story_5#">Halloween</a>
     <a href="https://zaba-5.github.io/ITSS3390/story_6#">West Coast Roadtrip</a>
   </div>
 
-  <!-- ------------ CONTENT AREA ---------------- -->
+  <!-- ------------ CONTENT ---------------- -->
   <div style="overflow:auto">
-
-    <!-- DESKTOP SIDEBAR -->
     <div class="menu">
       <p style="color:black; font-weight:bold; font-size: 18px; margin-top:12px">Stories</p>
       <a href="https://zaba-5.github.io/ITSS3390/story_1#">Who am I?</a>
@@ -301,54 +287,67 @@
     </div>
 
     <div class="main">
-      <p>
-      Hey everyone, I'm Alex. At 20 years old, I'm currently navigating life as a Data Science student from Madrid while spending this academic year as an exchange student at the University of Texas at Dallas.
-      </p>
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/008/695/917/small_2x/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg"
-          style="display:block; margin: 20px auto; max-width:300px;">
-      <p>
-I originally hail from northern Spain, specifically a town called Tolosa in the Basque Country. While I moved to Madrid when I was 11 due to my parents' work, those early years in the north definitely shaped part of my identity. The transition from a small town to a bustling capital like Madrid was significant, teaching me early on how to adapt to new environments and cultures - something that's proving incredibly valuable during my time here in the States.
-        </p>
-      <p>
-My path to Data Science wasn't exactly random. I've always been drawn to mathematics - there's something compelling about its precision and logic. When I discovered coding during high school, it felt like finding the perfect complement to my mathematical interests. The ability to not just solve problems but to actually build solutions through code completely captured my attention. Data Science emerged as the natural intersection of these two passions, allowing me to work with complex datasets while applying both analytical thinking and programming skills.
-        </p>
-      <p>
-What excites me most about this field is how it blends theory with practical application. Whether it's working on machine learning projects or analyzing patterns in large datasets, I appreciate how Data Science provides tools to extract meaningful insights from what might otherwise seem like random information. It's this combination of rigorous analysis and creative problem-solving that keeps me engaged and motivated in my studies.
-        </p>
-      <p>
-
-Through this blog, I plan to share my experiences balancing student life between two countries, my academic journey in Data Science, and the various projects I'm working on. I'll also document some of the cultural adjustments and discoveries that come with living in Texas while maintaining my roots in Spain.
-</p>
-      <p>
-I'm looking forward to sharing this journey with you all, and I'm excited to connect with others who share similar interests in technology, data, and international student experiences.
-
-</p>
-    </div>
-
+      <p>Before I came to UTD, I imagined my exchange year as a non-stop parade of epic trips and wild parties. The reality, I’ve learned, is built on something much more valuable: a solid routine. It’s the framework that makes the adventures possible. So, I thought I’d pull back the curtain and show you what a typical week looks like for me here in Dallas.
+<br><br>
+Monday: The Productive Pause
+My week starts with a gift: no classes. But this isn't a day for sleeping in. It’s my primary day to tackle the heavier Data Science homework and get ahead on weekly readings. I’ll usually camp out in the library for a few hours. It’s my day to set the tone for the week, ensuring my workload is managed before the fun begins.
+<br><br>
+Tuesday: The Marathon
+Tuesdays are my longest days. It starts early with an 8 AM class, followed by a necessary gym session to wake me up properly. The real marathon is from 4 PM to 10 PM, where I’m back-to-back in labs and lectures. These are the intense, practical sessions I’ve talked about, and by the end, my brain is full, but it’s a satisfying kind of tired.
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVGMpwaBtsArNQiIpD8P-cNXa6GGMsnzjrhA&s" alt="UTD Campus"
+           style="display:block; margin: 20px auto; max-width:300px;">
+Wednesday: The Reset
+Another class-free day. The gym is a non-negotiable part of my routine, so I’ll hit it again in the morning. The rest of the day is for lighter work—reviewing notes, starting on smaller assignments, or running errands. It’s a crucial buffer day that keeps me from falling behind.
+<br><br>
+Thursday: The Hump Day
+A split schedule. Another 8 AM class, another gym session. Then, I have a break before my afternoon class from 1 PM to 4 PM. This gap is perfect for a long lunch with friends or finishing up some pre-class prep. Once that last class ends, I can feel the weekend approaching.
+<br><br>
+Friday: The Finish Line
+A single block of class from 10 AM to 1 PM. The energy on campus is completely different—everyone is ready for the weekend. Walking out of that building at 1 PM on a Friday is one of the best feelings of the week.
+<br><br>
+The Weekends: Freedom & Friends
+This is where the routine dissolves into possibility. The weekends are for:
+<ul>
+  <li>
+Recovery: Catching up on sleep after a week of early mornings.
+  </li>
+  <li>
+Socializing: This is when we make our big plans. Whether it’s trying a new restaurant, exploring a part of Dallas, or just hanging out with the other Spaniards, this is our time to connect.
+</li>
+  <li>
+Fun: The gaming room at UTD is a frequent haunt for me and my friends. It’s the perfect, low-key way to unwind and have some laughs.
+</li>
+  <li>
+Preparation: Sunday always includes a dedicated block for homework and studying, getting a head start on the coming Monday.
+    </li>
+</ul>
+      <img src="https://communityimpact.com/uploads/images/2024/10/09/331056.jpg" alt="UTD Gaming Center" style="display:block; margin: 20px auto; max-width:300px;">
+So, there you have it. It’s not all rodeos and road trips. The magic of this experience lies in this balance—the discipline of the weekdays fuels the freedom of the weekends, and it’s a rhythm I’ve come to love.
+    </p>
+      </div>
   </div>
-<div class="recommended-box">
-  <h2>Recommended Sites</h2>
-  <p>Here are some useful links about Dallas and Texas!</p>
 
-  <div class="recommended-grid">
+  <!-- ------------ RECOMMENDED SITES ---------------- -->
+  <div class="recommended-box">
+    <h2>Recommended Sites</h2>
+    <p>Here are some useful links related to my background and universities!</p>
 
-    <div class="recommended-item">
-      <img src="/mnt/data/553e8f55-cfa0-44e5-a9a4-a175da148d04.png">
-      <a href="#" target="_blank">Dallas<br>Morning News</a>
+    <div class="recommended-grid">
+
+      <div class="recommended-item">
+        <a href="https://www.tolosaldea.eus/en" target="_blank" rel="noopener">Tolosaldea</a>
+      </div>
+
+      <div class="recommended-item">
+        <a href="https://www.uc3m.es/Home" target="_blank" rel="noopener">UC3M</a>
+      </div>
+
+      <div class="recommended-item">
+        <a href="https://www.utdallas.edu/" target="_blank" rel="noopener">UT Dallas</a>
+      </div>
+
     </div>
-
-    <div class="recommended-item">
-      <img src="/mnt/data/553e8f55-cfa0-44e5-a9a4-a175da148d04.png">
-      <a href="#" target="_blank">Visit<br>Dallas</a>
-    </div>
-
-    <div class="recommended-item">
-      <img src="/mnt/data/553e8f55-cfa0-44e5-a9a4-a175da148d04.png">
-      <a href="#" target="_blank">Texas<br>Observer</a>
-    </div>
-
   </div>
-</div>
 
   <!-- ------------ FOOTER ---------------- -->
   <footer class="footer">
@@ -361,5 +360,4 @@ I'm looking forward to sharing this journey with you all, and I'm excited to con
   </footer>
 
 </body>
-
 </html>
