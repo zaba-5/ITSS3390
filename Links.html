@@ -15,8 +15,7 @@
       margin: 0;
     }
 
-    /* ------------------- NAVIGATION (Mobile First) ------------------- */
-
+    /* ------------------- NAVIGATION ------------------- */
     .topnav {
       background-color: #0B066A;
       padding: 10px;
@@ -27,7 +26,7 @@
     }
 
     .menu-links {
-      display: none; /* Hidden on mobile */
+      display: none;
       flex-direction: column;
       width: 100%;
       background-color: #0B066A;
@@ -51,7 +50,7 @@
       color: white;
     }
 
-    /* Desktop Nav */
+    /* Desktop */
     @media (min-width: 768px) {
       .hamburger {
         display: none;
@@ -69,29 +68,54 @@
       }
     }
 
-    /* ------------------ MAIN ------------------ */
+    /* ------------------- MAIN CONTENT ------------------- */
     .main {
-      float: right;
-      width: 70%;
-      padding: 0 10px;
-      margin: 0px 20px 7px 0px;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      text-align: center;
     }
 
-    /* ------- FIX MOBILE LAYOUT ------- */
-    @media (max-width: 700px) {
-      .main {
-        width: 100%;
-        margin: 0;
-        float: none;
-      }
-
-      .main p {
-        text-align: center;
-      }
+    h3.section-title {
+      font-size: 24px;
+      color: #0B066A;
+      margin-top: 35px;
+      margin-bottom: 15px;
     }
 
-    /* ------------------ FOOTER ------------------ */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+      margin-bottom: 10px;
+    }
 
+    .link-box {
+      background: #0B066A;
+      padding: 20px;
+      border-radius: 10px;
+      transition: 0.25s ease;
+      cursor: pointer;
+      transform: translateY(0px);
+    }
+
+    .link-box:hover {
+      background: #5753A2;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .link-box a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* ------------------- FOOTER ------------------- */
     .footer {
       background-color: #0B066A;
       display: flex;
@@ -106,6 +130,15 @@
       color: #f2f2f2;
       text-decoration: none;
     }
+
+    @media (max-width: 700px) {
+      .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+      }
+    }
+
   </style>
 
   <script>
@@ -113,17 +146,13 @@
       const menu = document.getElementById("menuLinks");
       menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
     }
-
-    function toggleStories() {
-      const s = document.getElementById("storiesMobile");
-      s.style.display = (s.style.display === "flex") ? "none" : "flex";
-    }
   </script>
+
 </head>
 
 <body>
 
-  <!-- ------------ NAV ---------------- -->
+  <!-- NAV -->
   <div class="topnav">
     <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
 
@@ -136,25 +165,54 @@
     </div>
   </div>
 
-  <div style="background-color:#0B066A; color: #FFFFFF; padding: 2px; text-align:center; margin-bottom: 30px">
+  <div style="background-color:#0B066A; color:#FFFFFF; padding:10px; text-align:center; margin-bottom:30px;">
     <h2>Relevant Links</h2>
   </div>
 
-  <!-- ------------ CONTENT AREA ---------------- -->
-  <div style="overflow:auto">
-    <div class="main">
-      <p>Links will be here</p>
+  <!-- CONTENT -->
+  <div class="main">
+
+    <h3 class="section-title">🏔️ California</h3>
+    <div class="links-grid">
+      <div class="link-box"><a href="https://www.nps.gov/yose/index.htm" target="_blank">Yosemite National Park</a></div>
+      <div class="link-box"><a href="https://www.visitcalifornia.com/" target="_blank">California Highway Guide</a></div>
+    </div>
+
+    <h3 class="section-title">🎺 New Orleans</h3>
+    <div class="links-grid">
+      <div class="link-box"><a href="https://www.neworleans.com/things-to-do/multicultural/cultures/spanish/" target="_blank">Spanish History of New Orleans</a></div>
+      <div class="link-box"><a href="https://www.frenchquarter.com/" target="_blank">French Quarter</a></div>
+    </div>
+
+    <h3 class="section-title">⭐ Dallas & Texas</h3>
+    <div class="links-grid">
+      <div class="link-box"><a href="https://www.nba.com/mavs/" target="_blank">Dallas Mavericks</a></div>
+      <div class="link-box"><a href="https://www.eaglegunrangetx.com/" target="_blank">Eagle Gun Firing Range</a></div>
+      <div class="link-box"><a href="https://www.dallascowboys.com/" target="_blank">Dallas Cowboys</a></div>
+      <div class="link-box"><a href="https://www.dart.org/" target="_blank">Dallas Area Rapid Transit</a></div>
+    </div>
+
+    <h3 class="section-title">🎓 University Resources</h3>
+    <div class="links-grid">
+      <div class="link-box"><a href="https://esports.utdallas.edu/gaming-center/" target="_blank">UTD Gaming Center</a></div>
+      <div class="link-box"><a href="https://international.utdallas.edu/isso/student-life/welcome-guide/" target="_blank">UTD Welcome Guide</a></div>
+    </div>
+
+    <h3 class="section-title">🌍 Personal Background</h3>
+    <div class="links-grid">
+      <div class="link-box"><a href="https://www.tolosaldea.eus/en" target="_blank">Tolosaldea</a></div>
+      <div class="link-box"><a href="https://www.uc3m.es/Home" target="_blank">UC3M</a></div>
+      <div class="link-box"><a href="https://www.utdallas.edu/" target="_blank">UT Dallas</a></div>
     </div>
 
   </div>
 
-  <!-- ------------ FOOTER ---------------- -->
+  <!-- FOOTER -->
   <footer class="footer">
-    <p>
-      URL:
+    <p>URL:
       <a href="https://zaba-5.github.io/ITSS3390/">https://zaba-5.github.io/ITSS3390/</a>
     </p>
-    <p><span style="font-size: 20px;">&#9786;</span> Enjoy <span style="font-size: 20px;">&#9786;</span></p>
+    <p><span style="font-size:20px;">&#9786;</span> Enjoy <span style="font-size:20px;">&#9786;</span></p>
     <p>Author: Alex Zabaleta Lacunza</p>
   </footer>
 
