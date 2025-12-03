@@ -18,12 +18,17 @@
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%; margin:0; font-family:Verdana, sans-serif; background:var(--bg); color:var(--text);}
+    html,body{
+      margin:0;
+      font-family:Verdana, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
 
-    a{color:inherit}
+    a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
 
-    /* ---------- Top nav (mobile-first) ---------- */
+    /* ---------- NAV ---------- */
     .topnav{
       background:var(--primary);
       color:white;
@@ -34,7 +39,6 @@
     }
     .hamburger{
       font-size:26px;
-      line-height:1;
       cursor:pointer;
       background:none;
       border:none;
@@ -49,42 +53,43 @@
     }
     .menu-links a{
       padding:12px;
-      text-decoration:none;
       color:white;
-      display:block;
     }
     .menu-links a:hover{background:#5753A2}
 
-    /* show horizontal menu on wider screens */
     @media(min-width:768px){
       .hamburger{display:none}
-      .menu-links{display:flex !important; flex-direction:row; justify-content:center; background:transparent}
-      .menu-links a{display:inline-block; padding:12px 16px}
+      .menu-links{
+        display:flex !important;
+        flex-direction:row;
+        justify-content:center;
+        background:none;
+      }
+      .menu-links a{padding:12px 16px}
     }
 
-    /* ---------- Page header ---------- */
+    /* ---------- HEADER ---------- */
     header.page-header{
       background:var(--primary);
-      color:#fff;
+      color:white;
       text-align:center;
       padding:8px 12px;
     }
 
-    /* ---------- Layout container ---------- */
+    /* ---------- LAYOUT ---------- */
     .container{
       max-width:1100px;
       margin:20px auto;
       padding:0 16px;
     }
 
-    /* ---------- Stories (sidebar + mobile toggle) ---------- */
     .layout{
       display:flex;
       gap:20px;
       align-items:flex-start;
     }
 
-    /* Sidebar (desktop) */
+    /* Sidebar */
     .stories-sidebar{
       min-width:200px;
       width:20%;
@@ -93,37 +98,40 @@
       padding:12px;
       background:var(--card);
     }
-    .stories-sidebar p{color:black; font-weight:700; margin:6px 0 12px; text-align:center;}
+    .stories-sidebar p{
+      font-weight:bold;
+      margin:6px 0 12px;
+      text-align:center;
+      color:black;
+    }
     .stories-sidebar a{
       display:block;
       margin:7px auto;
       width:90%;
-      text-decoration:none;
       background:var(--accent);
       padding:8px;
       border-radius:10px;
-      color:#000;
+      color:black;
       text-align:center;
     }
 
-    /* Main content */
+    /* Main */
     .main{
       width:75%;
-      background:transparent;
     }
 
-    /* Mobile stories toggle / mobile list */
+    /* ---------- Mobile Stories ---------- */
     .stories-toggle{
       display:none;
       background:var(--accent);
-      color:black;
       width:180px;
+      padding:10px;
       margin:10px auto;
       text-align:center;
-      padding:10px;
       border-radius:10px;
       font-weight:bold;
       cursor:pointer;
+      color:black;
     }
     .stories-mobile{
       display:none;
@@ -137,10 +145,8 @@
       margin:6px 0;
       width:70%;
       border-radius:10px;
-      color:black;
-      text-decoration:none;
       text-align:center;
-      display:block;
+      color:black;
     }
 
     @media(max-width:700px){
@@ -148,28 +154,20 @@
       .stories-sidebar{display:none}
       .main{width:100%}
       .stories-toggle{display:block}
-      .stories-mobile{display:none} /* toggled via JS */
     }
 
-    /* ---------- Main text + image ---------- */
-    .bio {
+    /* ---------- Story text ---------- */
+    .story-box{
       background:var(--card);
       padding:18px;
       border-radius:var(--radius);
       box-shadow:0 4px 12px rgba(0,0,0,0.06);
       line-height:1.6;
+      font-size:16px;
     }
-    .bio img{
-      display:block;
-      margin:18px auto;
-      max-width:300px;
-      border-radius:8px;
-    }
+    .story-box p{margin:0}
 
-    /* preserve original single-paragraph feel (we keep <p> + <br>) */
-    .bio p{margin:0; font-size:16px; color:#222}
-
-    /* ---------- Recommended box ---------- */
+    /* ---------- Recommended ---------- */
     .recommended-box{
       background:var(--bg);
       border:3px solid var(--muted);
@@ -180,21 +178,30 @@
       max-width:900px;
       text-align:center;
     }
-    .recommended-box h2{font-size:28px; margin:6px 0; color:#333}
-    .recommended-box p{margin:10px 0 22px; color:#444}
-    .recommended-grid{display:flex; justify-content:space-around; flex-wrap:wrap; gap:18px}
-    .recommended-item{width:180px; text-align:center}
-    .recommended-item a{color:#0B5BB5; text-decoration:none; font-size:18px}
-    .recommended-item a:hover{text-decoration:underline}
-
-    @media(max-width:700px){
-      .recommended-grid{flex-direction:column; align-items:center}
+    .recommended-box h2{
+      font-size:28px;
+      margin:6px 0;
     }
+    .recommended-box p{
+      margin:10px 0 22px;
+      color:#444;
+    }
+    .recommended-grid{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+    .recommended-item a{
+      color:#0B5BB5;
+      font-size:18px;
+    }
+    .recommended-item a:hover{text-decoration:underline}
 
     /* ---------- Footer ---------- */
     footer.page-footer{
       background:var(--primary);
-      color:#f2f2f2;
+      color:white;
       padding:10px;
       display:flex;
       justify-content:space-between;
@@ -203,9 +210,11 @@
       font-size:14px;
       margin-top:28px;
     }
-    footer.page-footer a{color:#f2f2f2; text-decoration:none}
+    footer.page-footer a{
+      color:white;
+    }
 
-    /* ---------- Utility: show menus via class toggles ---------- */
+    /* Utility */
     .menu-open{display:flex !important}
     .mobile-show{display:flex !important}
   </style>
@@ -214,17 +223,15 @@
 <body>
 
   <!-- NAV -->
-  <nav class="topnav" aria-label="Main navigation">
-    <button class="hamburger" id="hamburgerBtn" aria-controls="menuLinks" aria-expanded="false" aria-label="Toggle menu">
-      &#9776;
-    </button>
+  <nav class="topnav">
+    <button class="hamburger" id="hamburgerBtn" aria-expanded="false">&#9776;</button>
 
-    <div class="menu-links" id="menuLinks" role="menu" aria-hidden="true">
-      <a href="https://zaba-5.github.io/ITSS3390/" role="menuitem">Home</a>
-      <a href="https://zaba-5.github.io/ITSS3390/Links" role="menuitem">Links</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_2" role="menuitem">First Story</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_4" role="menuitem">Last Story</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_1" role="menuitem">About Me</a>
+    <div class="menu-links" id="menuLinks">
+      <a href="https://zaba-5.github.io/ITSS3390/">Home</a>
+      <a href="https://zaba-5.github.io/ITSS3390/Links">Links</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_2">First Story</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_4">Last Story</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_1">About Me</a>
     </div>
   </nav>
 
@@ -235,35 +242,34 @@
 
   <div class="container">
 
-    <!-- Mobile-only stories toggle -->
-    <div class="stories-toggle" id="storiesToggle" role="button" aria-expanded="false">Stories ▼</div>
-    <div class="stories-mobile" id="storiesMobile" aria-hidden="true">
-      <a href="https://zaba-5.github.io/ITSS3390/story_1#">Who am I?</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_2#">Arrival</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_3#">A Week in Dallas</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_4#">Texan Activities</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_5#">Halloween</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_6#">West Coast Roadtrip</a>
+    <!-- MOBILE STORIES -->
+    <div class="stories-toggle" id="storiesToggle">Stories ▼</div>
+
+    <div class="stories-mobile" id="storiesMobile">
+      <a href="https://zaba-5.github.io/ITSS3390/story_1">Who am I?</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_2">Arrival</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_3">A Week in Dallas</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_4">Texan Activities</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_5">Halloween</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_6">West Coast Roadtrip</a>
     </div>
 
     <div class="layout">
 
-      <!-- Sidebar for desktop -->
-      <aside class="stories-sidebar" aria-label="Stories list">
+      <!-- SIDEBAR -->
+      <aside class="stories-sidebar">
         <p>Stories</p>
-        <a href="https://zaba-5.github.io/ITSS3390/story_1#">Who am I?</a>
-        <a href="https://zaba-5.github.io/ITSS3390/story_2#">Arrival</a>
-        <a href="https://zaba-5.github.io/ITSS3390/story_3#">A Week in Dallas</a>
-        <a href="https://zaba-5.github.io/ITSS3390/story_4#">Texan Activities</a>
-        <a href="https://zaba-5.github.io/ITSS3390/story_5#">Halloween</a>
-        <a href="https://zaba-5.github.io/ITSS3390/story_6#">West Coast Roadtrip</a>
+        <a href="https://zaba-5.github.io/ITSS3390/story_1">Who am I?</a>
+        <a href="https://zaba-5.github.io/ITSS3390/story_2">Arrival</a>
+        <a href="https://zaba-5.github.io/ITSS3390/story_3">A Week in Dallas</a>
+        <a href="https://zaba-5.github.io/ITSS3390/story_4">Texan Activities</a>
+        <a href="https://zaba-5.github.io/ITSS3390/story_5">Halloween</a>
+        <a href="https://zaba-5.github.io/ITSS3390/story_6">West Coast Roadtrip</a>
       </aside>
 
-      <!-- Main content kept as single paragraph with <br> breaks as requested -->
-      <main class="main" role="main">
-        <section class="bio" aria-labelledby="bioHeading">
-          <h3 id="bioHeading" style="display:none">Biography</h3>
-
+      <!-- MAIN CONTENT -->
+      <main class="main">
+        <section class="story-box">
           <p>
             Hey everyone, I'm Alex. At 20 years old, I'm currently navigating life as a Data Science student from Madrid while spending this academic year as an exchange student at the University of Texas at Dallas.
             <br><img src="z_image_story1.jpg" alt="Author's face" style="display:block; margin: 20px auto; max-width:300px;">
@@ -280,9 +286,8 @@
         </section>
       </main>
     </div>
-
-    <!-- Recommended sites -->
-    <div class="recommended-box" role="region" aria-label="Recommended sites">
+<!-- ------------ RECOMMENDED SITES ---------------- -->
+   <div class="recommended-box" role="region" aria-label="Recommended sites">
       <h2>Recommended Sites</h2>
       <p>Here are some useful links related to my background and universities!</p>
 
@@ -293,53 +298,45 @@
       </div>
     </div>
 
-  </div> <!-- /.container -->
-
   <!-- FOOTER -->
-  <footer class="page-footer" role="contentinfo">
+  <footer class="page-footer">
     <p>URL: <a href="https://zaba-5.github.io/ITSS3390/">https://zaba-5.github.io/ITSS3390/</a></p>
     <p><span style="font-size:20px">&#9786;</span> Enjoy <span style="font-size:20px">&#9786;</span></p>
     <p>Author: Alex Zabaleta Lacunza</p>
   </footer>
 
+  <!-- JS -->
   <script>
-    // Toggle the top navigation (mobile)
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const menuLinks = document.getElementById('menuLinks');
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const menuLinks = document.getElementById("menuLinks");
 
-    hamburgerBtn.addEventListener('click', () => {
-      const isOpen = menuLinks.classList.toggle('menu-open');
-      hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
-      menuLinks.setAttribute('aria-hidden', String(!isOpen));
+    hamburgerBtn.addEventListener("click", () => {
+      const open = menuLinks.classList.toggle("menu-open");
+      hamburgerBtn.setAttribute("aria-expanded", open);
     });
 
-    // Toggle the mobile stories list
-    const storiesToggle = document.getElementById('storiesToggle');
-    const storiesMobile = document.getElementById('storiesMobile');
+    const storiesToggle = document.getElementById("storiesToggle");
+    const storiesMobile = document.getElementById("storiesMobile");
 
-    if (storiesToggle) {
-      storiesToggle.addEventListener('click', () => {
-        const shown = storiesMobile.classList.toggle('mobile-show');
-        storiesToggle.setAttribute('aria-expanded', String(shown));
-        storiesMobile.setAttribute('aria-hidden', String(!shown));
-      });
-    }
+    storiesToggle.addEventListener("click", () => {
+      const open = storiesMobile.classList.toggle("mobile-show");
+      storiesToggle.setAttribute("aria-expanded", open);
+    });
 
-    // Close mobile menus when clicking outside (small UX nicety)
-    document.addEventListener('click', (e) => {
-      const target = e.target;
-      if (!menuLinks.contains(target) && !hamburgerBtn.contains(target) && menuLinks.classList.contains('menu-open')) {
-        menuLinks.classList.remove('menu-open');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
-        menuLinks.setAttribute('aria-hidden', 'true');
+    document.addEventListener("click", (e) => {
+      if (!menuLinks.contains(e.target) &&
+          !hamburgerBtn.contains(e.target) &&
+          menuLinks.classList.contains("menu-open")) {
+        menuLinks.classList.remove("menu-open");
       }
 
-      if (!storiesMobile.contains(target) && !storiesToggle.contains(target) && storiesMobile.classList.contains('mobile-show')) {
-        storiesMobile.classList.remove('mobile-show');
-        storiesToggle.setAttribute('aria-expanded', 'false');
-        storiesMobile.setAttribute('aria-hidden', 'true');
+      if (!storiesMobile.contains(e.target) &&
+          !storiesToggle.contains(e.target) &&
+          storiesMobile.classList.contains("mobile-show")) {
+        storiesMobile.classList.remove("mobile-show");
       }
     });
   </script>
+
 </body>
 </html>
