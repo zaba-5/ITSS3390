@@ -1,253 +1,230 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Week in Dallas — Days in Dallas</title>
 
   <style>
-    * {
-      box-sizing: border-box;
+    /* ---------- Base ---------- */
+    :root{
+      --primary:#0B066A;
+      --accent:#45CADB;
+      --muted:#8C8698;
+      --bg:#EAE9EC;
+      --card:#ffffff;
+      --text:#222;
+      --radius:12px;
     }
 
-    body {
-      font-family: Verdana;
-      background-color: #EAE9EC;
-      margin: 0;
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      font-family:Verdana, sans-serif;
+      background:var(--bg);
+      color:var(--text);
     }
 
-    /* ------------------- NAVIGATION ------------------- */
-    .topnav {
-      background-color: #0B066A;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: white;
-    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
 
-    .menu-links {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: #0B066A;
-      text-align: center;
+    /* ---------- NAV ---------- */
+    .topnav{
+      background:var(--primary);
+      color:white;
+      padding:10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
     }
-
-    .menu-links a {
-      padding: 12px;
-      text-decoration: none;
-      color: white;
-      display: block;
+    .hamburger{
+      font-size:26px;
+      cursor:pointer;
+      background:none;
+      border:none;
+      color:white;
     }
-
-    .menu-links a:hover {
-      background-color: #5753A2;
+    .menu-links{
+      display:none;
+      flex-direction:column;
+      width:100%;
+      background:var(--primary);
+      text-align:center;
     }
-
-    .hamburger {
-      font-size: 24px;
-      cursor: pointer;
-      color: white;
+    .menu-links a{
+      padding:12px;
+      color:white;
     }
+    .menu-links a:hover{background:#5753A2}
 
-    @media (min-width: 768px) {
-      .hamburger {
-        display: none;
+    @media(min-width:768px){
+      .hamburger{display:none}
+      .menu-links{
+        display:flex !important;
+        flex-direction:row;
+        justify-content:center;
+        background:none;
       }
-
-      .menu-links {
-        display: flex !important;
-        flex-direction: row;
-        justify-content: center;
-        background: none;
-      }
-
-      .menu-links a {
-        display: inline-block;
-      }
+      .menu-links a{padding:12px 16px}
     }
 
-    /* ------------------ STORIES SIDEBAR ------------------ */
-    .menu {
-      float: right;
-      width: 20%;
-      text-align: center;
-      border: 2px solid #8C8698;
-      margin-right: 15px;
-      border-radius: 15px;
+    /* ---------- HEADER ---------- */
+    header.page-header{
+      background:var(--primary);
+      color:white;
+      text-align:center;
+      padding:8px 12px;
     }
 
-    .menu a {
-      background-color: #45CADB;
-      padding: 8px;
-      margin: 7px auto;
-      display: block;
-      width: 90%;
-      color: black;
-      text-align: center;
-      border-radius: 10px;
-      text-decoration: none;
+    /* ---------- LAYOUT ---------- */
+    .container{
+      max-width:1100px;
+      margin:20px auto;
+      padding:0 16px;
     }
 
-    @media (max-width: 700px) {
-      .menu {
-        display: none;
-      }
-
-      .stories-toggle {
-        display: block;
-        background-color: #45CADB;
-        color: black;
-        width: 180px;
-        margin: 10px auto;
-        text-align: center;
-        padding: 10px;
-        border-radius: 10px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-
-      .stories-mobile {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-
-      .stories-mobile a {
-        background-color: #45CADB;
-        padding: 8px;
-        margin: 6px;
-        width: 70%;
-        border-radius: 10px;
-        color: black;
-        text-decoration: none;
-        text-align: center;
-      }
+    .layout{
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
     }
 
-    @media (min-width: 700px) {
-      .stories-toggle,
-      .stories-mobile {
-        display: none;
-      }
+    /* Sidebar */
+    .stories-sidebar{
+      min-width:200px;
+      width:20%;
+      border:2px solid var(--muted);
+      border-radius:15px;
+      padding:12px;
+      background:var(--card);
+    }
+    .stories-sidebar p{
+      font-weight:bold;
+      margin:6px 0 12px;
+      text-align:center;
+      color:black;
+    }
+    .stories-sidebar a{
+      display:block;
+      margin:7px auto;
+      width:90%;
+      background:var(--accent);
+      padding:8px;
+      border-radius:10px;
+      color:black;
+      text-align:center;
     }
 
-    /* ------------------ MAIN ------------------ */
-    .main {
-      float: right;
-      width: 70%;
-      padding: 0 10px;
-      margin: 0px 20px 7px 0px;
+    /* Main */
+    .main{
+      width:75%;
     }
 
-    @media (max-width: 700px) {
-      .main {
-        width: 100%;
-        margin: 0;
-        float: none;
-      }
-
-      .main p {
-        text-align: center;
-      }
+    /* ---------- Mobile Stories ---------- */
+    .stories-toggle{
+      display:none;
+      background:var(--accent);
+      width:180px;
+      padding:10px;
+      margin:10px auto;
+      text-align:center;
+      border-radius:10px;
+      font-weight:bold;
+      cursor:pointer;
+      color:black;
+    }
+    .stories-mobile{
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      margin-bottom:20px;
+    }
+    .stories-mobile a{
+      background:var(--accent);
+      padding:8px;
+      margin:6px 0;
+      width:70%;
+      border-radius:10px;
+      text-align:center;
+      color:black;
     }
 
-    /* -------- Recommended Sites Section -------- */
-    .recommended-box {
-      background-color: #EAE9EC;
-      border: 3px solid #8C8698;
-      border-radius: 20px;
-      padding: 25px;
-      margin: 40px auto;
-      width: 90%;
-      max-width: 900px;
-      text-align: center;
+    @media(max-width:700px){
+      .layout{flex-direction:column}
+      .stories-sidebar{display:none}
+      .main{width:100%}
+      .stories-toggle{display:block}
     }
 
-    .recommended-box h2 {
-      font-size: 32px;
-      margin-bottom: 5px;
-      color: #333;
+    /* ---------- Story text ---------- */
+    .story-box{
+      background:var(--card);
+      padding:18px;
+      border-radius:var(--radius);
+      box-shadow:0 4px 12px rgba(0,0,0,0.06);
+      line-height:1.6;
+      font-size:16px;
+    }
+    .story-box p{margin:0}
+
+    /* ---------- Recommended ---------- */
+    .recommended-box{
+      background:var(--bg);
+      border:3px solid var(--muted);
+      border-radius:20px;
+      padding:24px;
+      margin:30px auto;
+      width:90%;
+      max-width:900px;
+      text-align:center;
+    }
+    .recommended-box h2{
+      font-size:28px;
+      margin:6px 0;
+    }
+    .recommended-box p{
+      margin:10px 0 22px;
+      color:#444;
+    }
+    .recommended-grid{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+    .recommended-item a{
+      color:#0B5BB5;
+      font-size:18px;
+    }
+    .recommended-item a:hover{text-decoration:underline}
+
+    /* ---------- Footer ---------- */
+    footer.page-footer{
+      background:var(--primary);
+      color:white;
+      padding:10px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:6px;
+      font-size:14px;
+      margin-top:28px;
+    }
+    footer.page-footer a{
+      color:white;
     }
 
-    .recommended-box p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: #444;
-    }
-
-    .recommended-grid {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-
-    .recommended-item {
-      width: 180px;
-      text-align: center;
-      margin: 15px;
-    }
-
-    .recommended-item img {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      margin-bottom: 10px;
-    }
-
-    .recommended-item a {
-      color: #0B5BB5;
-      font-size: 18px;
-      text-decoration: none;
-    }
-
-    .recommended-item a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 700px) {
-      .recommended-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-
-    /* ------------------ FOOTER ------------------ */
-    .footer {
-      background-color: #0B066A;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 7px 10px;
-      color: #f2f2f2;
-      margin-top: 30px;
-    }
-
-    .footer a {
-      color: #f2f2f2;
-      text-decoration: none;
-    }
+    /* Utility */
+    .menu-open{display:flex !important}
+    .mobile-show{display:flex !important}
   </style>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("menuLinks");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-    }
-
-    function toggleStories() {
-      const s = document.getElementById("storiesMobile");
-      s.style.display = (s.style.display === "flex") ? "none" : "flex";
-    }
-  </script>
 </head>
 
 <body>
 
-  <!-- ------------ NAV ---------------- -->
-  <div class="topnav">
-    <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+  <!-- NAV -->
+  <nav class="topnav">
+    <button class="hamburger" id="hamburgerBtn" aria-expanded="false">&#9776;</button>
 
     <div class="menu-links" id="menuLinks">
       <a href="https://zaba-5.github.io/ITSS3390/">Home</a>
@@ -256,99 +233,148 @@
       <a href="https://zaba-5.github.io/ITSS3390/story_4">Last Story</a>
       <a href="https://zaba-5.github.io/ITSS3390/story_1">About Me</a>
     </div>
-  </div>
+  </nav>
 
-  <div style="background-color:#0B066A; color: #FFFFFF; padding: 2px; text-align:center; margin-bottom: 30px">
+  <!-- HEADER -->
+  <header class="page-header">
     <h2>A Week in Dallas</h2>
-  </div>
+  </header>
 
-  <!-- ------------ MOBILE STORIES ---------------- -->
-  <div class="stories-toggle" onclick="toggleStories()">Stories ▼</div>
+  <div class="container">
 
-  <div class="stories-mobile" id="storiesMobile">
-    <a href="https://zaba-5.github.io/ITSS3390/story_1#">Who am I?</a>
-    <a href="https://zaba-5.github.io/ITSS3390/story_2#">Arrival</a>
-    <a href="https://zaba-5.github.io/ITSS3390/story_3#">A Week in Dallas</a>
-    <a href="https://zaba-5.github.io/ITSS3390/story_4#">Texan Activities</a>
-    <a href="https://zaba-5.github.io/ITSS3390/story_5#">Halloween</a>
-    <a href="https://zaba-5.github.io/ITSS3390/story_6#">West Coast Roadtrip</a>
-  </div>
+    <!-- MOBILE STORIES -->
+    <div class="stories-toggle" id="storiesToggle">Stories ▼</div>
 
-  <!-- ------------ CONTENT ---------------- -->
-  <div style="overflow:auto">
-    <div class="menu">
-      <p style="color:black; font-weight:bold; font-size: 18px; margin-top:12px">Stories</p>
-      <a href="https://zaba-5.github.io/ITSS3390/story_1#">Who am I?</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_2#">Arrival</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_3#">A Week in Dallas</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_4#">Texan Activities</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_5#">Halloween</a>
-      <a href="https://zaba-5.github.io/ITSS3390/story_6#">West Coast Roadtrip</a>
+    <div class="stories-mobile" id="storiesMobile">
+      <a href="https://zaba-5.github.io/ITSS3390/story_1">Who am I?</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_2">Arrival</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_3">A Week in Dallas</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_4">Texan Activities</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_5">Halloween</a>
+      <a href="https://zaba-5.github.io/ITSS3390/story_6">West Coast Roadtrip</a>
     </div>
 
-    <div class="main">
-      <p>Before I came to UTD, I imagined my exchange year as a non-stop parade of epic trips and wild parties. The reality, I’ve learned, is built on something much more valuable: a solid routine. It’s the framework that makes the adventures possible. So, I thought I’d pull back the curtain and show you what a typical week looks like for me here in Dallas.
-<br><br>
-Monday: The Productive Pause
-My week starts with a gift: no classes. But this isn't a day for sleeping in. It’s my primary day to tackle the heavier Data Science homework and get ahead on weekly readings. I’ll usually camp out in the library for a few hours. It’s my day to set the tone for the week, ensuring my workload is managed before the fun begins.
-<br><br>
-Tuesday: The Marathon
-Tuesdays are my longest days. It starts early with an 8 AM class, followed by a necessary gym session to wake me up properly. The real marathon is from 4 PM to 10 PM, where I’m back-to-back in labs and lectures. These are the intense, practical sessions I’ve talked about, and by the end, my brain is full, but it’s a satisfying kind of tired.
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVGMpwaBtsArNQiIpD8P-cNXa6GGMsnzjrhA&s" alt="UTD Campus"
-           style="display:block; margin: 20px auto; max-width:300px;">
-Wednesday: The Reset
-Another class-free day. The gym is a non-negotiable part of my routine, so I’ll hit it again in the morning. The rest of the day is for lighter work—reviewing notes, starting on smaller assignments, or running errands. It’s a crucial buffer day that keeps me from falling behind.
-<br><br>
-Thursday: The Hump Day
-A split schedule. Another 8 AM class, another gym session. Then, I have a break before my afternoon class from 1 PM to 4 PM. This gap is perfect for a long lunch with friends or finishing up some pre-class prep. Once that last class ends, I can feel the weekend approaching.
-<br><br>
-Friday: The Finish Line
-A single block of class from 10 AM to 1 PM. The energy on campus is completely different—everyone is ready for the weekend. Walking out of that building at 1 PM on a Friday is one of the best feelings of the week.
-<br><br>
-The Weekends: Freedom & Friends
-This is where the routine dissolves into possibility. The weekends are for:
-<ul>
-  <li>
-Recovery: Catching up on sleep after a week of early mornings.
-  </li>
-  <li>
-Socializing: This is when we make our big plans. Whether it’s trying a new restaurant, exploring a part of Dallas, or just hanging out with the other Spaniards, this is our time to connect.
-</li>
-  <li>
-Fun: The gaming room at UTD is a frequent haunt for me and my friends. It’s the perfect, low-key way to unwind and have some laughs.
-</li>
-  <li>
-Preparation: Sunday always includes a dedicated block for homework and studying, getting a head start on the coming Monday.
-    </li>
-</ul>
-      <img src="https://communityimpact.com/uploads/images/2024/10/09/331056.jpg" alt="UTD Gaming Center" style="display:block; margin: 20px auto; max-width:300px;">
-So, there you have it. It’s not all rodeos and road trips. The magic of this experience lies in this balance—the discipline of the weekdays fuels the freedom of the weekends, and it’s a rhythm I’ve come to love.
-    </p>
-      </div>
-  </div>
+    <div class="layout">
 
-  <!-- ------------ RECOMMENDED SITES ---------------- -->
-  <div class="recommended-box">
-    <h2>Recommended Sites</h2>
-    <p>Here are some useful links related to my background and universities!</p>
+      <!-- SIDEBAR -->
+      <aside class="stories-sidebar">
+        <p>Stories</p>
+        <a href="https://zaba-5.github.io/ITSS3390/story_1">Who am I?</a>
+        <a href="https://zaba-5.github.io/ITSS3390/story_2">Arrival</a>
+        <a href="https://zaba-5.github.io/ITSS3390/story_3">A Week in Dallas</a>
+        <a href="https://zaba-5.github.io/ITSS3390/story_4">Texan Activities</a>
+        <a href="https://zaba-5.github.io/ITSS3390/story_5">Halloween</a>
+        <a href="https://zaba-5.github.io/ITSS3390/story_6">West Coast Roadtrip</a>
+      </aside>
 
-    <div class="recommended-grid">
+      <!-- MAIN CONTENT -->
+      <main class="main">
+        <section class="story-box">
+          <p>
+            Before I came to UTD, I imagined my exchange year as a non-stop parade of epic trips and wild parties. 
+            The reality, I’ve learned, is built on something much more valuable: a solid routine. 
+            It’s the framework that makes the adventures possible. So, I thought I’d pull back the curtain and show you what a typical week looks like for me here in Dallas.
+            <br><br>
+            <strong>Monday: The Productive Pause</strong><br>
+            My week starts with a gift: no classes. But this isn't a day for sleeping in. It’s my primary day to tackle the heavier Data Science homework and get ahead on weekly readings. 
+            I’ll usually camp out in the library for a few hours. It’s my day to set the tone for the week, ensuring my workload is managed before the fun begins.
+            <br><br>
+            <strong>Tuesday: The Marathon</strong><br>
+            Tuesdays are my longest days. It starts early with an 8 AM class, followed by a necessary gym session to wake me up properly. 
+            The real marathon is from 4 PM to 10 PM, where I’m back-to-back in labs and lectures. These are the intense, practical sessions I’ve talked about, 
+            and by the end, my brain is full, but it’s a satisfying kind of tired.
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVGMpwaBtsArNQiIpD8P-cNXa6GGMsnzjrhA&s"
+                 alt="UTD Campus" style="margin:20px auto; max-width:300px;">
+            <strong>Wednesday: The Reset</strong><br>
+            Another class-free day. The gym is a non-negotiable part of my routine, so I’ll hit it again in the morning. 
+            The rest of the day is for lighter work—reviewing notes, starting on smaller assignments, or running errands. It’s a crucial buffer day that keeps me from falling behind.
+            <br><br>
+            <strong>Thursday: The Hump Day</strong><br>
+            A split schedule. Another 8 AM class, another gym session. Then, I have a break before my afternoon class from 1 PM to 4 PM. 
+            This gap is perfect for a long lunch with friends or finishing up some pre-class prep. Once that last class ends, I can feel the weekend approaching.
+            <br><br>
+            <strong>Friday: The Finish Line</strong><br>
+            A single block of class from 10 AM to 1 PM. The energy on campus is completely different—everyone is ready for the weekend. 
+            Walking out of that building at 1 PM on a Friday is one of the best feelings of the week.
+            <br><br>
+            <strong>The Weekends: Freedom & Friends</strong>
+          </p>
 
-      <div class="recommended-item">
-        <a href="https://esports.utdallas.edu/gaming-center/" target="_blank" rel="noopener">UTD Gamming Center</a>
+          <ul>
+            <li><strong>Recovery:</strong> Catching up on sleep after a week of early mornings.</li>
+            <li><strong>Socializing:</strong> Trying new restaurants, exploring Dallas, or hanging out with the other Spaniards.</li>
+            <li><strong>Fun:</strong> The UTD gaming room is a frequent hangout spot.</li>
+            <li><strong>Preparation:</strong> Sunday includes homework and studying to reset for Monday.</li>
+          </ul>
+
+          <img src="https://communityimpact.com/uploads/images/2024/10/09/331056.jpg"
+               alt="UTD Gaming Center" style="margin:20px auto; max-width:300px;">
+
+          <p>
+            So, there you have it. It’s not all rodeos and road trips. 
+            The magic of this experience lies in this balance—the discipline of the weekdays fuels the freedom of the weekends, 
+            and it’s a rhythm I’ve come to love.
+          </p>
+
+        </section>
+      </main>
+    </div>
+
+    <!-- RECOMMENDED -->
+    <div class="recommended-box">
+      <h2>Recommended Sites</h2>
+      <p>Here are some useful links related to my background and universities!</p>
+
+      <div class="recommended-grid">
+        <div class="recommended-item">
+          <a href="https://esports.utdallas.edu/gaming-center/" target="_blank" rel="noopener">
+            UTD Gaming Center
+          </a>
+        </div>
       </div>
     </div>
+
   </div>
 
-  <!-- ------------ FOOTER ---------------- -->
-  <footer class="footer">
-    <p>
-      URL:
-      <a href="https://zaba-5.github.io/ITSS3390/">https://zaba-5.github.io/ITSS3390/</a>
-    </p>
-    <p><span style="font-size: 20px;">&#9786;</span> Enjoy <span style="font-size: 20px;">&#9786;</span></p>
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p>URL: <a href="https://zaba-5.github.io/ITSS3390/">https://zaba-5.github.io/ITSS3390/</a></p>
+    <p><span style="font-size:20px">&#9786;</span> Enjoy <span style="font-size:20px">&#9786;</span></p>
     <p>Author: Alex Zabaleta Lacunza</p>
   </footer>
+
+  <!-- JS -->
+  <script>
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const menuLinks = document.getElementById("menuLinks");
+
+    hamburgerBtn.addEventListener("click", () => {
+      const open = menuLinks.classList.toggle("menu-open");
+      hamburgerBtn.setAttribute("aria-expanded", open);
+    });
+
+    const storiesToggle = document.getElementById("storiesToggle");
+    const storiesMobile = document.getElementById("storiesMobile");
+
+    storiesToggle.addEventListener("click", () => {
+      const open = storiesMobile.classList.toggle("mobile-show");
+      storiesToggle.setAttribute("aria-expanded", open);
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!menuLinks.contains(e.target) &&
+          !hamburgerBtn.contains(e.target) &&
+          menuLinks.classList.contains("menu-open")) {
+        menuLinks.classList.remove("menu-open");
+      }
+
+      if (!storiesMobile.contains(e.target) &&
+          !storiesToggle.contains(e.target) &&
+          storiesMobile.classList.contains("mobile-show")) {
+        storiesMobile.classList.remove("mobile-show");
+      }
+    });
+  </script>
 
 </body>
 </html>
