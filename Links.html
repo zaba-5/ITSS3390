@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
     }
 
     body {
-      font-family: Verdana;
+      font-family: Verdana, sans-serif;
       background-color: #EAE9EC;
       margin: 0;
     }
@@ -45,12 +45,11 @@
     }
 
     .hamburger {
-      font-size: 24px;
+      font-size: 26px;
       cursor: pointer;
       color: white;
     }
 
-    /* Desktop */
     @media (min-width: 768px) {
       .hamburger {
         display: none;
@@ -64,14 +63,15 @@
       }
 
       .menu-links a {
+        padding: 12px 16px;
         display: inline-block;
       }
     }
 
     /* ------------------- MAIN CONTENT ------------------- */
-    .main {
+    main {
       max-width: 900px;
-      margin: auto;
+      margin: 25px auto;
       background: white;
       padding: 25px;
       border-radius: 12px;
@@ -82,15 +82,13 @@
     h3.section-title {
       font-size: 24px;
       color: #0B066A;
-      margin-top: 35px;
-      margin-bottom: 15px;
+      margin: 35px 0 15px;
     }
 
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 18px;
-      margin-bottom: 10px;
     }
 
     .link-box {
@@ -98,8 +96,6 @@
       padding: 20px;
       border-radius: 10px;
       transition: 0.25s ease;
-      cursor: pointer;
-      transform: translateY(0px);
     }
 
     .link-box:hover {
@@ -113,38 +109,39 @@
       text-decoration: none;
       font-size: 16px;
       font-weight: bold;
+      display: block;
     }
 
     /* ------------------- FOOTER ------------------- */
-    .footer {
+    footer {
       background-color: #0B066A;
+      color: white;
+      padding: 10px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 7px 10px;
-      color: #f2f2f2;
-      margin-top: 30px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      margin-top: 40px;
     }
 
-    .footer a {
-      color: #f2f2f2;
+    footer a {
+      color: white;
       text-decoration: none;
     }
 
     @media (max-width: 700px) {
-      .footer {
+      footer {
         flex-direction: column;
         text-align: center;
         gap: 5px;
       }
     }
-
   </style>
 
   <script>
     function toggleMenu() {
       const menu = document.getElementById("menuLinks");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
   </script>
 
@@ -152,9 +149,9 @@
 
 <body>
 
-  <!-- NAV -->
-  <div class="topnav">
-    <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+  <!-- NAVIGATION -->
+  <nav class="topnav">
+    <span class="hamburger" onclick="toggleMenu()" aria-label="Open Menu">&#9776;</span>
 
     <div class="menu-links" id="menuLinks">
       <a href="https://zaba-5.github.io/ITSS3390/">Home</a>
@@ -163,14 +160,15 @@
       <a href="https://zaba-5.github.io/ITSS3390/story_4">Last Story</a>
       <a href="https://zaba-5.github.io/ITSS3390/story_1">About Me</a>
     </div>
-  </div>
+  </nav>
 
-  <div style="background-color:#0B066A; color:#FFFFFF; padding:10px; text-align:center; margin-bottom:30px;">
+  <!-- HEADER -->
+  <header style="background-color:#0B066A; color:white; padding:10px; text-align:center;">
     <h2>Relevant Links</h2>
-  </div>
+  </header>
 
-  <!-- CONTENT -->
-  <div class="main">
+  <!-- MAIN CONTENT -->
+  <main>
 
     <h3 class="section-title">🏔️ California</h3>
     <div class="links-grid">
@@ -187,7 +185,7 @@
     <h3 class="section-title">⭐ Dallas & Texas</h3>
     <div class="links-grid">
       <div class="link-box"><a href="https://www.nba.com/mavs/" target="_blank">Dallas Mavericks</a></div>
-      <div class="link-box"><a href="https://www.eaglegunrangetx.com/" target="_blank">Eagle Gun Firing Range</a></div>
+      <div class="link-box"><a href="https://www.eaglegunrangetx.com/" target="_blank">Eagle Gun Range</a></div>
       <div class="link-box"><a href="https://www.dallascowboys.com/" target="_blank">Dallas Cowboys</a></div>
       <div class="link-box"><a href="https://www.dart.org/" target="_blank">Dallas Area Rapid Transit</a></div>
     </div>
@@ -205,12 +203,12 @@
       <div class="link-box"><a href="https://www.utdallas.edu/" target="_blank">UT Dallas</a></div>
     </div>
 
-  </div>
+  </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <p>URL:
-      <a href="https://zaba-5.github.io/ITSS3390/">https://zaba-5.github.io/ITSS3390/</a>
+  <footer>
+    <p>
+      URL: <a href="https://zaba-5.github.io/ITSS3390/">https://zaba-5.github.io/ITSS3390/</a>
     </p>
     <p><span style="font-size:20px;">&#9786;</span> Enjoy <span style="font-size:20px;">&#9786;</span></p>
     <p>Author: Alex Zabaleta Lacunza</p>
