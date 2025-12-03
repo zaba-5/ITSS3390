@@ -4,7 +4,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
   <style>
     * {
@@ -12,14 +13,13 @@
     }
 
     body {
-      font-family: Verdana;
+      font-family: Verdana, sans-serif;
       background-color: #EAE9EC;
       margin: 0;
       padding: 0;
     }
 
-    /* ------------------- NAVIGATION (Mobile First) ------------------- */
-
+    /* ------------------- NAVIGATION ------------------- */
     .topnav {
       background-color: #0B066A;
       padding: 10px;
@@ -30,7 +30,7 @@
     }
 
     .menu-links {
-      display: none; /* Hidden on mobile */
+      display: none;
       flex-direction: column;
       width: 100%;
       background-color: #0B066A;
@@ -39,8 +39,8 @@
 
     .menu-links a {
       padding: 12px;
-      text-decoration: none;
       color: white;
+      text-decoration: none;
       display: block;
     }
 
@@ -49,12 +49,10 @@
     }
 
     .hamburger {
-      font-size: 24px;
+      font-size: 26px;
       cursor: pointer;
-      color: white;
     }
 
-    /* Desktop Nav */
     @media (min-width: 768px) {
       .hamburger {
         display: none;
@@ -63,23 +61,23 @@
       .menu-links {
         display: flex !important;
         flex-direction: row;
-        justify-content: center;
         background: none;
+        justify-content: center;
       }
 
       .menu-links a {
         display: inline-block;
+        padding: 12px 16px;
       }
     }
 
     /* ------------------- SEARCH BAR ------------------- */
-
     .search-bar {
       display: flex;
       justify-content: center;
       margin: 15px auto;
       width: 90%;
-      max-width: 400px;
+      max-width: 420px;
     }
 
     .search-bar input {
@@ -93,11 +91,11 @@
 
     .search-bar button {
       padding: 10px 16px;
-      font-size: 16px;
       border: none;
-      border-radius: 0 25px 25px 0;
       background-color: #0B066A;
       color: white;
+      border-radius: 0 25px 25px 0;
+      font-size: 16px;
       cursor: pointer;
     }
 
@@ -105,11 +103,10 @@
       background-color: #1c44ac;
     }
 
-    /* ------------------- BOX GRID (Mobile First) ------------------- */
-
+    /* ------------------- BOX GRID ------------------- */
     .box-container {
       display: grid;
-      grid-template-columns: 1fr; /* Mobile */
+      grid-template-columns: 1fr;
       gap: 20px;
       width: 90%;
       margin: 20px auto;
@@ -117,13 +114,13 @@
 
     @media (min-width: 600px) {
       .box-container {
-        grid-template-columns: repeat(2, 1fr); /* Tablets */
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (min-width: 900px) {
       .box-container {
-        grid-template-columns: repeat(3, 1fr); /* Desktop */
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -134,7 +131,7 @@
       padding: 20px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .box:hover {
@@ -142,18 +139,15 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     }
 
-    /* ------------------- FIXED IMAGE SIZE ------------------- */
-
     .box img {
       width: 100%;
-      height: 180px; /* Make all images same height */
-      object-fit: cover; /* Crop if necessary */
+      height: 180px;
+      object-fit: cover;
       border-radius: 10px;
     }
 
     /* ------------------- FOOTER ------------------- */
-
-    .footer {
+    footer {
       background-color: #0B066A;
       color: white;
       padding: 10px;
@@ -163,23 +157,22 @@
       font-size: 14px;
     }
 
-    .footer p {
+    footer p {
       margin: 5px;
     }
 
-    .footer a {
+    footer a {
       color: white;
       text-decoration: none;
     }
-
   </style>
 </head>
 
 <body>
 
   <!-- ------------------- NAVIGATION ------------------- -->
-  <div class="topnav">
-    <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+  <nav class="topnav">
+    <span class="hamburger" onclick="toggleMenu()" aria-label="Open Menu">&#9776;</span>
 
     <div class="menu-links" id="menuLinks">
       <a href="https://zaba-5.github.io/ITSS3390/">Home</a>
@@ -188,53 +181,54 @@
       <a href="https://zaba-5.github.io/ITSS3390/story_4">Last Story</a>
       <a href="https://zaba-5.github.io/ITSS3390/story_1">About Me</a>
     </div>
-  </div>
+  </nav>
 
   <!-- ------------------- HEADER ------------------- -->
-  <div style="background-color:#0B066A; color:#FFFFFF; padding:2px; text-align:center;">
+  <header style="background-color:#0B066A; color:white; text-align:center; padding:10px;">
     <h2>Days in Dallas</h2>
-  </div>
+  </header>
 
-  <!-- ------------------- SEARCH BAR ------------------- -->
+  <!-- ------------------- SEARCH ------------------- -->
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Find a Story">
     <button onclick="filterBoxes()">Search</button>
   </div>
 
-  <!-- ------------------- BOX GRID ------------------- -->
-  <div class="box-container" id="boxContainer">
+  <!-- ------------------- CONTENT GRID ------------------- -->
+  <main class="box-container" id="boxContainer">
 
     <div class="box">
-      <img src="z_image_story1.jpg" alt="Authors Face">
+      <img src="z_image_story1.jpg" alt="Author portrait">
       <a href="https://zaba-5.github.io/ITSS3390/story_1">Who am I?</a>
     </div>
 
     <div class="box">
-      <img src="https://calaero.edu/wp-content/uploads/2018/05/Airplane-Landings.jpg" alt="Arrival Image">
+      <img src="https://calaero.edu/wp-content/uploads/2018/05/Airplane-Landings.jpg" alt="Plane landing image">
       <a href="https://zaba-5.github.io/ITSS3390/story_2">Arrival</a>
     </div>
 
     <div class="box">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVGMpwaBtsArNQiIpD8P-cNXa6GGMsnzjrhA&s" alt="Week in Dallas">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVGMpwaBtsArNQiIpD8P-cNXa6GGMsnzjrhA&s"
+        alt="Dallas city week">
       <a href="https://zaba-5.github.io/ITSS3390/story_3">A Week in Dallas</a>
     </div>
 
     <div class="box">
-      <img src="z_image_story4.jpg" alt="Texan Activities">
+      <img src="z_image_story4.jpg" alt="Texas activities">
       <a href="https://zaba-5.github.io/ITSS3390/story_4">Texan Activities</a>
     </div>
 
     <div class="box">
-      <img src="z_image_story5.jpg" alt="Halloween">
+      <img src="z_image_story5.jpg" alt="Halloween at New Orleans">
       <a href="https://zaba-5.github.io/ITSS3390/story_5">Halloween at New Orleans</a>
     </div>
 
     <div class="box">
-      <img src="z_image_story6.jpg" alt="Roadtrip">
+      <img src="z_image_story6.jpg" alt="West Coast road trip">
       <a href="https://zaba-5.github.io/ITSS3390/story_6">West Coast Roadtrip</a>
     </div>
 
-  </div>
+  </main>
 
   <!-- ------------------- SCRIPTS ------------------- -->
   <script>
@@ -255,7 +249,7 @@
   </script>
 
   <!-- ------------------- FOOTER ------------------- -->
-  <footer class="footer">
+  <footer>
     <p>URL: <a href="https://zaba-5.github.io/ITSS3390/">https://zaba-5.github.io/ITSS3390/</a></p>
     <p><span style="font-size: 20px;">&#9786;</span> Enjoy <span style="font-size: 20px;">&#9786;</span></p>
     <p>Author: Alex Zabaleta Lacunza</p>
